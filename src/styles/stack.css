@@ -1,0 +1,214 @@
+/* ═══════════════════════════════════════════════════════════════
+   STACK SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Section header — reutilizable */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  max-width: 50ch;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .section-subtitle {
+  margin-inline: auto;
+}
+
+/* ── Grid ── */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card base ── */
+.stack-card {
+  position: relative;
+  padding: 1.75rem;
+  border-radius: 14px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  cursor: default;
+
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* glow shine pseudo-element */
+.stack-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* top-edge glow line */
+.stack-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ── Card color themes ── */
+.stack-card[data-color="cyan"] {
+  --card-accent: #00f5ff;
+  --card-accent-dim: rgba(0, 245, 255, 0.06);
+  --card-glow: rgba(0, 245, 255, 0.12);
+}
+.stack-card[data-color="violet"] {
+  --card-accent: #a78bfa;
+  --card-accent-dim: rgba(167, 139, 250, 0.06);
+  --card-glow: rgba(167, 139, 250, 0.12);
+}
+.stack-card[data-color="emerald"] {
+  --card-accent: #34d399;
+  --card-accent-dim: rgba(52, 211, 153, 0.06);
+  --card-glow: rgba(52, 211, 153, 0.12);
+}
+.stack-card[data-color="amber"] {
+  --card-accent: #fbbf24;
+  --card-accent-dim: rgba(251, 191, 36, 0.06);
+  --card-glow: rgba(251, 191, 36, 0.12);
+}
+
+/* ── Hover state ── */
+.stack-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-accent);
+  box-shadow:
+    0 0 0 1px var(--card-accent),
+    0 0 30px var(--card-glow),
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.stack-card:hover::before {
+  opacity: 1;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--card-accent-dim) 0%, transparent 70%);
+}
+
+.stack-card:hover::after {
+  opacity: 1;
+  background: var(--card-accent);
+  box-shadow: 0 0 12px var(--card-glow);
+}
+
+/* ── Card icon ── */
+.stack-card__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--card-accent-dim);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 20%, transparent);
+  margin-bottom: 1.25rem;
+  color: var(--card-accent);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stack-card:hover .stack-card__icon-wrap {
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+  box-shadow: 0 0 16px var(--card-glow);
+}
+
+/* ── Card title ── */
+.stack-card__title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  margin-bottom: 0.35rem;
+}
+
+.stack-card__heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+/* ── Tech badges ── */
+.stack-card__techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.stack-card:hover .tech-badge {
+  border-color: color-mix(in srgb, var(--card-accent) 25%, transparent);
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--card-accent) 5%, var(--color-bg-elevated));
+}
+
+.tech-badge__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  flex-shrink: 0;
+  opacity: 0.7;
+}

@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION — Styles
+   Animations handled by framer-motion; CSS here is purely visual.
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 8rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Static ambient gradient (bottom-left purple tint) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 15% 100%, rgba(99, 102, 241, 0.055) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 85% 100%, rgba(0, 245, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Subtle dot grid pattern with radial fade */
+.hero__dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 85% 85% at center, black 20%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at center, black 20%, transparent 100%);
+}
+
+/* ── Content wrapper ── */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.65rem;
+  max-width: 880px;
+}
+
+/* ── Badge ── */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 245, 255, 0.22);
+  background: rgba(0, 245, 255, 0.055);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  /* No CSS animation — framer-motion handles entrance */
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+  flex-shrink: 0;
+  /* Pulse animation handled by framer-motion */
+}
+
+/* ── Heading ── */
+.hero__heading {
+  font-size: clamp(2.4rem, 5.8vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  /* No CSS animation — framer-motion handles entrance */
+}
+
+/* Neon cyan accent on "soluciones web." */
+.hero__heading .highlight {
+  color: var(--color-accent);
+  position: relative;
+}
+
+/* ── Text-reveal container ──
+   overflow:hidden clips the child during the slide-up animation */
+.reveal-line {
+  display: block;
+  overflow: hidden;
+  /* Tiny vertical padding so descenders aren't clipped */
+  padding-bottom: 0.08em;
+}
+
+/* ── Subtitle ── */
+.hero__sub {
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
+  line-height: 1.78;
+  color: var(--color-text-secondary);
+  max-width: 58ch;
+  /* No CSS animation — framer-motion handles entrance */
+}
+
+/* Bold keywords in subtitle */
+.text-strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* ── CTA wrapper ── */
+.hero__cta {
+  margin-top: 0.35rem;
+}
+
+/* ── Primary button ──
+   box-shadow pulse is handled by framer-motion;
+   only base styles here */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.3rem;
+  border-radius: 9px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  /* Neon cyan surface */
+  background: var(--color-accent);
+  color: #000d10;
+
+  /* Base box-shadow (framer-motion animates this) */
+  box-shadow:
+    0 0 18px rgba(0, 245, 255, 0.20),
+    0 0 55px rgba(0, 245, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+
+  /* transform & filter transition for whileHover */
+  will-change: transform, box-shadow;
+}
+
+/* Shine sweep pseudo-element */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.btn-primary:hover::before {
+  left: 150%;
+}
+
+/* Arrow icon */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  /* x-offset animation handled by framer-motion whileHover */
+}

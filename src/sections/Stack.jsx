@@ -44,11 +44,10 @@ function FloatingIcon({ Icon, delay = 0 }) {
 const STACK_DATA = [
   {
     id: 'frontend',
-    span: 2,                // wide bento card
+    span: 2,
     color: 'cyan',
     Icon: Code2,
     iconDelay: 0,
-    label: 'Interfaz',
     heading: 'Frontend',
     description: 'Interfaces reactivas, accesibles y performantes con las herramientas del ecosistema moderno.',
     techs: ['React', 'Vite', 'JavaScript', 'HTML', 'CSS'],
@@ -59,8 +58,7 @@ const STACK_DATA = [
     color: 'violet',
     Icon: Server,
     iconDelay: 0.4,
-    label: 'Servidor',
-    heading: 'Backend & Core',
+    heading: 'Backend',
     techs: ['Python', 'Java', 'C++', 'C#', 'PHP'],
   },
   {
@@ -69,18 +67,16 @@ const STACK_DATA = [
     color: 'emerald',
     Icon: Database,
     iconDelay: 0.8,
-    label: 'Datos & Nube',
-    heading: 'BD & Cloud',
+    heading: 'Bases de Datos & Cloud',
     techs: ['SQL', 'Supabase'],
   },
   {
     id: 'tools',
-    span: 2,                // wide bento card
+    span: 2,
     color: 'amber',
     Icon: Wrench,
     iconDelay: 0.2,
-    label: 'Productividad',
-    heading: 'Herramientas & Auto',
+    heading: 'Herramientas',
     description: 'Automatización de flujos de trabajo y entorno de desarrollo de alta eficiencia.',
     techs: ['Make', 'VS Code', 'Google Antigravity'],
   },
@@ -109,7 +105,6 @@ function BentoCard({ id, span, color, Icon, iconDelay, label, heading, descripti
             <FloatingIcon Icon={Icon} delay={iconDelay} />
           </div>
 
-          <p className="bento-card__label">{label}</p>
           <h3 className="bento-card__heading">{heading}</h3>
 
           {/* Description only on wide cards */}
@@ -173,6 +168,39 @@ export default function Stack() {
           {STACK_DATA.map((card) => (
             <BentoCard key={card.id} {...card} />
           ))}
+        </motion.div>
+
+        {/* ── Interactive Terminal ── */}
+        <motion.div 
+          className="terminal-widget"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="terminal-header">
+            <div className="terminal-btns">
+              <span className="terminal-btn close" />
+              <span className="terminal-btn min" />
+              <span className="terminal-btn max" />
+            </div>
+            <span className="terminal-title">guest@portfolio:~</span>
+          </div>
+          <div className="terminal-body" style={{ fontFamily: 'var(--font-mono)' }}>
+            <p className="cmd-line">
+              <span className="prompt">guest@portfolio:~$</span> <span className="typewriter-cmd">fetch --skills</span>
+            </p>
+            <pre className="json-output">
+{`{
+  "langs": ["JavaScript", "Python", "Java", "PHP", "SQL", "C#"],
+  "frameworks": ["React", "Express", "Vite", "Node.js"],
+  "tools": ["Git", "Make", "Supabase", "VS Code"]
+}`}
+            </pre>
+            <p className="cmd-line">
+              <span className="prompt">guest@portfolio:~$</span> <span className="cursor-blink">_</span>
+            </p>
+          </div>
         </motion.div>
 
       </div>

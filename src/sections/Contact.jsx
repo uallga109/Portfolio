@@ -11,9 +11,8 @@ const FADE_UP = (delay = 0) => ({
 })
 
 const SOCIAL_LINKS = [
-  { id: 'github',   Icon: GitBranch, href: 'https://github.com/',   label: 'GitHub'   },
-  { id: 'linkedin', Icon: Link2,     href: 'https://linkedin.com/', label: 'LinkedIn' },
-  { id: 'email',    Icon: Mail,      href: 'mailto:luis@example.com', label: 'Email'  },
+  { id: 'github',   Icon: GitBranch,   href: 'https://github.com/',   label: 'GitHub'   },
+  { id: 'linkedin', Icon: Link2, href: 'https://linkedin.com/', label: 'LinkedIn' },
 ]
 
 export default function Contact() {

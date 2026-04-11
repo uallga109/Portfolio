@@ -231,6 +231,115 @@
   opacity: 0.75;
 }
 
+/* ══════════════════════════════════════════════
+   INTERACTIVE TERMINAL
+   ══════════════════════════════════════════════ */
+.terminal-widget {
+  margin-top: 5rem;
+  background: #090c15;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.terminal-header {
+  background: #111520;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.terminal-btns {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.terminal-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.terminal-btn.close { background: #ff5f56; }
+.terminal-btn.min { background: #ffbd2e; }
+.terminal-btn.max { background: #27c93f; }
+
+.terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.terminal-body .cmd-line {
+  color: var(--color-text-primary);
+  margin-bottom: 0.8rem;
+}
+
+.terminal-body .prompt {
+  color: #fbbf24; /* amber */
+  margin-right: 0.75rem;
+}
+
+.terminal-body .typewriter-cmd {
+  color: #00f5ff; /* cyan */
+  border-right: 2px solid transparent;
+  animation: typing 1.5s steps(20, end), blink-caret .75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 14ch; /* length of "fetch --skills" */
+}
+
+.terminal-body .json-output {
+  margin: 1rem 0 1.5rem 0;
+  color: #34d399; /* emerald */
+  background: rgba(0,0,0,0.2);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.03);
+  opacity: 0;
+  animation: fade-in 0.1s forwards;
+  animation-delay: 1.6s;
+}
+
+.terminal-body .cursor-blink {
+  display: inline-block;
+  background: var(--color-text-primary);
+  color: var(--color-text-primary);
+  width: 8px;
+  height: 1rem;
+  vertical-align: bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 14ch }
+}
+
+@keyframes fade-in {
+  to { opacity: 1 }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* ── Animated gradient text on tech names ── */
 .tech-name {
   background: linear-gradient(

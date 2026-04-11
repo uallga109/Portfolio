@@ -134,21 +134,6 @@ export default function Hero() {
       <div className="container">
         <div className="hero__content">
 
-          {/* ── Badge (center) ── */}
-          <motion.div
-            className="hero__badge"
-            initial={{ opacity: 0, y: -18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-            role="text"
-          >
-            <span className="hero__badge-dot-wrap" aria-hidden="true">
-              <span className="hero__badge-ping-ring" />
-              <span className="hero__badge-ping-core" />
-            </span>
-            Disponible para nuevos proyectos
-          </motion.div>
-
           {/* ── H1 — Cinematic line reveal ── */}
           <h1 id="hero-heading" className="hero__heading" aria-label="Transformo problemas reales en soluciones web.">
 

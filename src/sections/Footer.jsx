@@ -8,8 +8,8 @@ const NAV_ITEMS = [
 ]
 
 const SOCIAL_ITEMS = [
-  { Icon: GitBranch, href: 'https://github.com/',   label: 'GitHub'  },
-  { Icon: Link2,     href: 'https://linkedin.com/', label: 'LinkedIn'},
+  { Icon: GitBranch,   href: 'https://github.com/',   label: 'GitHub'  },
+  { Icon: Link2, href: 'https://linkedin.com/', label: 'LinkedIn'},
   { Icon: Mail,      href: 'mailto:luis@example.com', label: 'Email' },
 ]
 

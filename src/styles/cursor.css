@@ -1,37 +1,54 @@
 /* ═══════════════════════════════════════════════════════════════
-   CUSTOM CURSOR
+   CUSTOM CURSOR (VANILLA JS OPTIMIZED)
    ═══════════════════════════════════════════════════════════════ */
 
-/* Hide native cursor on pointer devices (desktop) */
+/* Ocultar el cursor nativo en desktop */
 @media (pointer: fine) {
   * {
     cursor: none !important;
   }
 }
 
-/* The custom cursor circle */
 .custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
   width: 12px;
   height: 12px;
+  background: rgba(0,245,255,0.65);
+  border: 1px solid rgba(0,245,255,0.85);
   border-radius: 50%;
-  background: rgba(0, 245, 255, 0.7);
-  border: 1px solid rgba(0, 245, 255, 0.9);
   pointer-events: none;
   z-index: 9999;
-  /* Offset so the center of the circle is on the cursor point */
-  translate: -50% -50%;
-  will-change: transform;
-
-  /* Transition for size/color changes via framer-motion animate */
-  /* (framer handles the transform, CSS handles only static props) */
+  
+  /* Se centra restando la mitad de width/height */
+  margin: -6px 0 0 -6px; 
+  will-change: transform, width, height, background-color, border-color;
+  
+  /* Transición CSS nativa en vez de loop JS de React */
+  transition: 
+    width 0.2s ease-out, 
+    height 0.2s ease-out, 
+    background 0.2s ease-out, 
+    border-color 0.2s ease-out,
+    margin 0.2s ease-out,
+    transform 0.05s linear;
 }
 
-/* Hide custom cursor on touch devices */
-@media (pointer: coarse) {
+.custom-cursor.cursor-hover {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px; /* Mantener centrado */
+  background: rgba(0,245,255,0.1);
+  border-color: rgba(0,245,255,0.9);
+  border-width: 1.5px;
+}
+
+/* Apagar cursor en móviles y cuando hay reducción de movimiento */
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
   .custom-cursor {
-    display: none;
+    display: none !important;
   }
+  
+  * { cursor: auto !important; }
 }

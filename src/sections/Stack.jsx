@@ -26,15 +26,11 @@ const cardVariants = {
 /* ─────────────────────────────────────────────────────
    Floating icon wrapper
    ───────────────────────────────────────────────────── */
-function FloatingIcon({ Icon, delay = 0 }) {
+function FloatingIcon({ Icon }) {
   return (
-    <motion.div
-      style={{ display: 'inline-flex', color: 'var(--card-accent)' }}
-      animate={{ y: [-5, 5, -5] }}
-      transition={{ duration: 3.5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
-    >
+    <div style={{ display: 'inline-flex', color: 'var(--card-accent)' }}>
       <Icon size={26} strokeWidth={1.5} />
-    </motion.div>
+    </div>
   )
 }
 
@@ -162,7 +158,7 @@ export default function Stack() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '-50px' }}
           role="list"
         >
           {STACK_DATA.map((card) => (

@@ -31,7 +31,7 @@ export default function Contact() {
             variants={FADE_UP(0)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-50px' }}
             aria-hidden="true"
           >
             <span className="section-label__dot" />
@@ -45,7 +45,7 @@ export default function Contact() {
             variants={FADE_UP(0.1)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-50px' }}
           >
             ¿Tienes un proyecto<br />
             <span className="contact-heading__accent">en mente?</span>
@@ -57,7 +57,7 @@ export default function Contact() {
             variants={FADE_UP(0.2)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-50px' }}
           >
             Siempre abierto a nuevas oportunidades, colaboraciones y proyectos
             interesantes. No seas tímido — hablemos.
@@ -71,7 +71,7 @@ export default function Contact() {
             variants={FADE_UP(0.32)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-50px' }}
             whileHover={{ scale: 1.04, y: -3 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -85,7 +85,7 @@ export default function Contact() {
             variants={FADE_UP(0.44)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-50px' }}
           >
             {SOCIAL_LINKS.map(({ id, Icon, href, label }) => (
               <a

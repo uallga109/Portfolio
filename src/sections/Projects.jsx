@@ -114,29 +114,23 @@ function ProjectVisual({ gradient, patternColor, accent, Icon }) {
         style={{ '--pat-color': patternColor }}
         aria-hidden="true"
       />
-      <motion.div
+      <div
         className="project-visual__blob project-visual__blob--1"
         style={{ '--blob-color': accent }}
-        animate={{ y: [-10, 10, -10], rotate: [0, 8, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
       />
-      <motion.div
+      <div
         className="project-visual__blob project-visual__blob--2"
         style={{ '--blob-color': accent }}
-        animate={{ y: [10, -10, 10], rotate: [0, -8, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
       />
-      <motion.div
+      <div
         className="project-visual__icon"
         style={{ color: accent }}
-        animate={{ y: [-4, 4, -4] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
       >
         <Icon size={42} strokeWidth={1.2} />
-      </motion.div>
+      </div>
 
       {/* Hover overlay — CSS controlled */}
       <div className="project-visual__overlay" aria-hidden="true">
@@ -162,7 +156,7 @@ function ProjectCard({ project, index, onClick }) {
       style={{ '--accent': project.accent }}
       initial={{ opacity: 0, x: fromLeft ? -55 : 55, scale: 0.95 }}
       whileInView={{ opacity: 1, x: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-90px' }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.75, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       onClick={onClick}
       role="button"

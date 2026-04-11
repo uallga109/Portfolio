@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hide native cursor on pointer devices (desktop) */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* The custom cursor circle */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 245, 255, 0.7);
+  border: 1px solid rgba(0, 245, 255, 0.9);
+  pointer-events: none;
+  z-index: 9999;
+  /* Offset so the center of the circle is on the cursor point */
+  translate: -50% -50%;
+  will-change: transform;
+
+  /* Transition for size/color changes via framer-motion animate */
+  /* (framer handles the transform, CSS handles only static props) */
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}

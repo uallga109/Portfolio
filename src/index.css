@@ -45,6 +45,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* compensate fixed navbar height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -97,6 +98,16 @@ a:hover { color: var(--color-accent-hover); }
   max-width: 1140px;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ── Section label dot (global utility) ── */
+.section-label__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
 }
 
 .section {

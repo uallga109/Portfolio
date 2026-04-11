@@ -1,39 +1,38 @@
 import './index.css'
-import Navbar from './sections/Navbar'
-import Hero   from './sections/Hero'
-import Stack  from './sections/Stack'
+import ScrollProgress from './components/ScrollProgress'
+import CustomCursor   from './components/CustomCursor'
+import Navbar         from './sections/Navbar'
+import Hero           from './sections/Hero'
+import Stack          from './sections/Stack'
+import Projects       from './sections/Projects'
+import Contact        from './sections/Contact'
+import Footer         from './sections/Footer'
 
 /* ──────────────────────────────────────────────────────────────
    App — Root component
-   Layout: Navbar (fixed) + main > Hero | Stack | Proyectos | Contacto
+   Layout: global utilities → fixed overlay → main content
    ────────────────────────────────────────────────────────────── */
 export default function App() {
   return (
     <div id="wrapper">
 
+      {/* ── Global utilities (fixed, above everything) ── */}
+      <ScrollProgress />
+      <CustomCursor />
+
+      {/* ── Navigation ── */}
       <Navbar />
 
+      {/* ── Main content ── */}
       <main id="main-content">
-
         <Hero />
-
         <Stack />
-
-        {/* ── Proyectos (próximamente) ── */}
-        <section id="proyectos" aria-labelledby="proyectos-heading" className="section">
-          <div className="container">
-            {/* Projects content — próximamente */}
-          </div>
-        </section>
-
-        {/* ── Contacto (próximamente) ── */}
-        <section id="contacto" aria-labelledby="contacto-heading" className="section">
-          <div className="container">
-            {/* Contact content — próximamente */}
-          </div>
-        </section>
-
+        <Projects />
+        <Contact />
       </main>
+
+      {/* ── Footer ── */}
+      <Footer />
 
     </div>
   )

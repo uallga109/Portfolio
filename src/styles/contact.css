@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT SECTION
+   ═══════════════════════════════════════════════════════════════ */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow behind the section */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(0,245,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading — large and inviting */
+.contact-heading {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.contact-heading__accent {
+  color: var(--color-accent);
+}
+
+/* Subtitle */
+.contact-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  max-width: 46ch;
+}
+
+/* ── Email CTA button ── */
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: var(--color-accent);
+  color: #000d10;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+
+  box-shadow:
+    0 0 20px rgba(0,245,255,0.22),
+    0 0 60px rgba(0,245,255,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.22);
+
+  transition: box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.contact-cta:hover {
+  box-shadow:
+    0 0 32px rgba(0,245,255,0.42),
+    0 0 90px rgba(0,245,255,0.14),
+    0 12px 28px rgba(0,0,0,0.38);
+}
+
+/* ── Social icon links ── */
+.contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease;
+}
+
+.social-icon-link:hover {
+  color: var(--color-accent);
+  border-color: rgba(0,245,255,0.4);
+  background: rgba(0,245,255,0.06);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,245,255,0.15);
+}

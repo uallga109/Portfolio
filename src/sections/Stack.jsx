@@ -1,115 +1,143 @@
+import { motion } from 'framer-motion'
+import { Code2, Server, Database, Wrench } from 'lucide-react'
 import '../styles/stack.css'
 
-/* ──────────────────────────────────────────────
-   Inline SVG icons — minimal & clean
-   ────────────────────────────────────────────── */
-const IconFrontend = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M13.5 6L10.5 18M7 8.5L3.5 12L7 15.5M17 8.5L20.5 12L17 15.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
+/* ─────────────────────────────────────────────────────
+   Framer-motion variants
+   ───────────────────────────────────────────────────── */
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.11, delayChildren: 0.05 },
+  },
+}
 
-const IconBackend = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <rect x="3" y="4" width="18" height="5" rx="2" stroke="currentColor" strokeWidth="1.75"/>
-    <rect x="3" y="10" width="18" height="5" rx="2" stroke="currentColor" strokeWidth="1.75"/>
-    <rect x="3" y="16" width="18" height="5" rx="2" stroke="currentColor" strokeWidth="1.75"/>
-    <circle cx="7" cy="6.5" r="1" fill="currentColor"/>
-    <circle cx="7" cy="12.5" r="1" fill="currentColor"/>
-    <circle cx="7" cy="18.5" r="1" fill="currentColor"/>
-  </svg>
-)
+const cardVariants = {
+  hidden: { opacity: 0, y: 48, scale: 0.96, filter: 'blur(4px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+}
 
-const IconDatabase = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <ellipse cx="12" cy="6" rx="9" ry="3" stroke="currentColor" strokeWidth="1.75"/>
-    <path d="M3 6v5c0 1.657 4.03 3 9 3s9-1.343 9-3V6" stroke="currentColor" strokeWidth="1.75"/>
-    <path d="M3 11v5c0 1.657 4.03 3 9 3s9-1.343 9-3v-5" stroke="currentColor" strokeWidth="1.75"/>
-  </svg>
-)
+/* ─────────────────────────────────────────────────────
+   Floating icon wrapper
+   ───────────────────────────────────────────────────── */
+function FloatingIcon({ Icon, delay = 0 }) {
+  return (
+    <motion.div
+      style={{ display: 'inline-flex', color: 'var(--card-accent)' }}
+      animate={{ y: [-5, 5, -5] }}
+      transition={{ duration: 3.5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
+    >
+      <Icon size={26} strokeWidth={1.5} />
+    </motion.div>
+  )
+}
 
-const IconTools = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-
-/* ──────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────
    Stack data
-   ────────────────────────────────────────────── */
-const STACK_CARDS = [
+   ───────────────────────────────────────────────────── */
+const STACK_DATA = [
   {
     id: 'frontend',
+    span: 2,                // wide bento card
     color: 'cyan',
-    Icon: IconFrontend,
+    Icon: Code2,
+    iconDelay: 0,
     label: 'Interfaz',
     heading: 'Frontend',
+    description: 'Interfaces reactivas, accesibles y performantes con las herramientas del ecosistema moderno.',
     techs: ['React', 'Vite', 'JavaScript', 'HTML', 'CSS'],
   },
   {
     id: 'backend',
+    span: 1,
     color: 'violet',
-    Icon: IconBackend,
+    Icon: Server,
+    iconDelay: 0.4,
     label: 'Servidor',
     heading: 'Backend & Core',
     techs: ['Python', 'Java', 'C++', 'C#', 'PHP'],
   },
   {
     id: 'database',
+    span: 1,
     color: 'emerald',
-    Icon: IconDatabase,
+    Icon: Database,
+    iconDelay: 0.8,
     label: 'Datos & Nube',
-    heading: 'Base de Datos & Cloud',
+    heading: 'BD & Cloud',
     techs: ['SQL', 'Supabase'],
   },
   {
     id: 'tools',
+    span: 2,                // wide bento card
     color: 'amber',
-    Icon: IconTools,
+    Icon: Wrench,
+    iconDelay: 0.2,
     label: 'Productividad',
     heading: 'Herramientas & Auto',
+    description: 'Automatización de flujos de trabajo y entorno de desarrollo de alta eficiencia.',
     techs: ['Make', 'VS Code', 'Google Antigravity'],
   },
 ]
 
-/* ──────────────────────────────────────────────
-   StackCard
-   ────────────────────────────────────────────── */
-function StackCard({ id, color, Icon, label, heading, techs }) {
+/* ─────────────────────────────────────────────────────
+   Bento Card
+   ───────────────────────────────────────────────────── */
+function BentoCard({ id, span, color, Icon, iconDelay, label, heading, description, techs }) {
+  const isWide = span === 2
   return (
-    <article
-      id={`stack-card-${id}`}
-      className="stack-card"
+    <motion.article
+      id={`bento-card-${id}`}
+      className="bento-card"
       data-color={color}
+      data-span={span}
+      variants={cardVariants}
       aria-label={`Categoría: ${heading}`}
     >
-      {/* Icon */}
-      <div className="stack-card__icon-wrap" aria-hidden="true">
-        <Icon />
+      <div className={`bento-card__body${isWide ? ' bento-card__body--row' : ''}`}>
+
+        {/* Left / top section */}
+        <div className="bento-card__meta">
+          {/* Icon wrap */}
+          <div className="bento-card__icon-wrap" aria-hidden="true">
+            <FloatingIcon Icon={Icon} delay={iconDelay} />
+          </div>
+
+          <p className="bento-card__label">{label}</p>
+          <h3 className="bento-card__heading">{heading}</h3>
+
+          {/* Description only on wide cards */}
+          {isWide && description && (
+            <p className="bento-card__desc">{description}</p>
+          )}
+        </div>
+
+        {/* Right / bottom: tech badges */}
+        <ul className="bento-card__techs" aria-label={`Tecnologías de ${heading}`}>
+          {techs.map((tech) => (
+            <li key={tech}>
+              <span className="tech-badge">
+                <span className="tech-badge__dot" aria-hidden="true" />
+                {tech}
+              </span>
+            </li>
+          ))}
+        </ul>
+
       </div>
-
-      {/* Labels */}
-      <p className="stack-card__title">{label}</p>
-      <h3 className="stack-card__heading">{heading}</h3>
-
-      {/* Tech badges */}
-      <ul className="stack-card__techs" aria-label={`Tecnologías de ${heading}`}>
-        {techs.map((tech) => (
-          <li key={tech}>
-            <span className="tech-badge">
-              <span className="tech-badge__dot" aria-hidden="true" />
-              {tech}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </article>
+    </motion.article>
   )
 }
 
-/* ──────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────
    Stack Section
-   ────────────────────────────────────────────── */
+   ───────────────────────────────────────────────────── */
 export default function Stack() {
   return (
     <section
@@ -119,12 +147,10 @@ export default function Stack() {
     >
       <div className="container">
 
-        {/* Section header */}
+        {/* Header */}
         <header className="section-header">
           <p className="section-label" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-              <circle cx="6" cy="6" r="6"/>
-            </svg>
+            <span className="section-label__dot" />
             Habilidades
           </p>
           <h2 id="stack-heading" className="section-title">
@@ -135,12 +161,19 @@ export default function Stack() {
           </p>
         </header>
 
-        {/* Cards grid */}
-        <div className="stack-grid" role="list">
-          {STACK_CARDS.map((card) => (
-            <StackCard key={card.id} {...card} />
+        {/* Bento Grid with stagger cascade */}
+        <motion.div
+          className="bento-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          role="list"
+        >
+          {STACK_DATA.map((card) => (
+            <BentoCard key={card.id} {...card} />
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

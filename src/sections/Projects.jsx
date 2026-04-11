@@ -9,113 +9,97 @@ import '../styles/projects.css'
    ───────────────────────────────────────────────────── */
 const PROJECTS = [
   {
-    id: 'notebooklm',
-    title: 'NotebookLM RPG AI',
-    accent: '#a78bfa',
-    gradient: 'linear-gradient(135deg, #1a0830 0%, #2d1060 50%, #4c1d95 100%)',
-    patternColor: 'rgba(167,139,250,0.12)',
-    Icon: Bot,
-    tags: ['Gemini API', 'Python', 'AI/ML'],
-    description: 'Plataforma de estudio gamificada que transforma documentos en sesiones de combate interactivas impulsadas por IA.',
-    highlights: [
-      'Modo Combate Pokémon con 6 niveles de dificultad',
-      'Control total sobre las fuentes de estudio',
-      'Generación dinámica con Gemini API',
-    ],
-    // ── Modal content ──
-    reto: 'Convertir el estudio pasivo en una experiencia activa y motivadora usando IA. El mayor desafío fue diseñar un sistema de gamificación coherente que se adaptara dinámicamente a cualquier tipo de documento o fuente de conocimiento.',
-    solucion: 'Una plataforma que utiliza Gemini API para analizar en tiempo real los documentos del estudiante y generar preguntas de combate personalizadas. El sistema adapta la dificultad de las preguntas automáticamente según el nivel del jugador y el contexto del material.',
-    funciones: [
-      'Integración nativa con Gemini API para análisis semántico',
-      'Soporte para PDFs, URLs, texto libre y documentos de texto',
-      'Motor de generación de preguntas contextual y adaptativo',
-      'Sistema de progresión con 6 niveles de dificultad',
-      'Panel de estadísticas con progreso histórico del estudiante',
-      'Modo multijugador asíncrono (en desarrollo)',
-    ],
-    mecanicas: [
-      'Sistema de 6 niveles: Novato, Aprendiz, Intermedio, Avanzado, Experto y Maestro',
-      '3 vidas por sesión de combate — cada error penaliza',
-      'Preguntas por turnos con contador de tiempo dinámico',
-      'Combo multiplier por rachas de respuestas correctas',
-      'Sistema de XP acumulable entre sesiones',
-      'Jefes de fase con preguntas de síntesis al finalizar cada nivel',
-    ],
-  },
-  {
     id: 'crm',
-    title: 'CRM & Workflow Tracker',
+    title: 'CRM y Gestor de Flujos',
     accent: '#00f5ff',
     gradient: 'linear-gradient(135deg, #001a20 0%, #013040 50%, #014a5a 100%)',
     patternColor: 'rgba(0,245,255,0.10)',
     Icon: Kanban,
-    tags: ['React', 'Supabase', 'Kanban'],
-    description: 'Sistema de seguimiento de proyectos con interfaz estilo tracking de paquetería y vista Kanban integrada.',
+    tags: ['React', 'Supabase', 'Make'],
+    description: 'Panel integral para la toma de requisitos con tablero Kanban y seguimiento de progreso estilo paquetería.',
     highlights: [
-      'Seguimiento dinámico en tiempo real',
-      'Vista Kanban para gestión de estados',
-      'Dashboard de métricas y analytics',
+      'Seguimiento para cliente',
+      'Dashboard estadísticas',
+      'Vista Kanban de proyectos',
     ],
-    reto: 'El cliente necesitaba una plataforma propia para gestionar múltiples proyectos web con visibilidad total para sus clientes finales, sin depender de herramientas genéricas como Trello o Notion que no se adaptaban a su flujo de trabajo.',
-    solucion: 'Un CRM a medida con sistema de tracking visual estilo seguimiento de paquetería, donde el cliente puede ver el estado exacto de su proyecto en cada fase. Integra Supabase Realtime para sincronización instantánea y una vista Kanban personalizable.',
+    reto: 'Centralizar la toma de requisitos de clientes (tipo de web, pasarelas de pago, dominios) y mejorar la transparencia del proceso de desarrollo sin tener que enviar correos manuales constantemente.',
+    solucion: 'Desarrollo de un panel de gestión integral. Incluye un dashboard con estadísticas, gestión de proyectos mediante vista Kanban (Nuevo, En progreso, En revisión, Completado) e historial.',
     funciones: [
-      'Vista de tracking estilo paquetería para clientes',
-      'Tablero Kanban drag-and-drop con estados personalizables',
-      'Dashboard de métricas y KPIs en tiempo real',
-      'Sistema de notificaciones automáticas al cambiar de fase',
-      'Historial de cambios con timestamps auditables',
-      'Panel de administración multi-proyecto',
+      'Función Destacada: Un sistema de "tracking" para el cliente. Genera un enlace único donde el cliente puede ver en tiempo real el porcentaje de avance de su proyecto (al estilo del seguimiento de un paquete), alimentado dinámicamente por la base de datos.',
     ],
+    github: 'https://github.com/',
+    live: 'https://example.com'
   },
   {
     id: 'cms-clinica',
-    title: 'CMS Clínica Capilar',
+    title: 'CMS Clínica Cirugía Capilar',
     accent: '#34d399',
     gradient: 'linear-gradient(135deg, #011a0e 0%, #023520 50%, #065f46 100%)',
     patternColor: 'rgba(52,211,153,0.10)',
     Icon: Heart,
-    tags: ['React', 'Supabase', 'Automation'],
-    description: 'Panel de administración completo para clínica con gestión de leads, automatizaciones y blog integrado.',
+    tags: ['PHP', 'SQL', 'HTML/CSS/JS'],
+    description: 'Sistema interno para automatizar la captación de leads y gestionar publicaciones del blog corporativo.',
     highlights: [
-      'Gestión de leads con funnel de conversión',
-      'Notificaciones automáticas personalizadas',
-      'Programador de posts del blog integrado',
+      'Automatización leads',
+      'Kanban de contactos',
+      'CMS de blog a medida',
     ],
-    reto: 'La clínica capilar necesitaba centralizar la gestión de leads, el blog corporativo y las comunicaciones con clientes en una única herramienta manejable por personal sin conocimientos técnicos, eliminando dependencias de terceros.',
-    solucion: 'Un CMS intuitivo construido con React y Supabase que unifica todas las operaciones en un panel de admin simplificado. Incluye automatizaciones de email/WhatsApp mediante Make y un editor de blog WYSIWYG con publicación programada.',
+    reto: 'Crear un sistema interno para que los administradores de la clínica pudieran gestionar la captación de pacientes (leads) y el contenido de su web de forma unificada.',
+    solucion: 'Un dashboard personalizado que automatiza el envío de notificaciones al dueño cuando entra un nuevo contacto. Incluye un sistema de gestión de formularios (con vista Kanban para separar nuevos contactos de los ya gestionados) y analíticas de datos.',
     funciones: [
-      'Funnel de leads con etapas y seguimiento de conversión',
-      'Notificaciones automáticas via Make (email y WhatsApp)',
-      'Editor de blog WYSIWYG con programador de publicaciones',
-      'Galería de fotos del antes/después con gestión de categorías',
-      'Sistema de citas online integrado',
-      'Dashboard de rendimiento y métricas de captación',
+      'Función Destacada: Desarrollo de un gestor de contenidos (CMS) propio para el blog de la clínica, permitiendo crear, editar y programar publicaciones.'
     ],
+    github: 'https://github.com/'
+  },
+  {
+    id: 'notebooklm',
+    title: 'Plataforma Inteligente & RPG',
+    accent: '#a78bfa',
+    gradient: 'linear-gradient(135deg, #1a0830 0%, #2d1060 50%, #4c1d95 100%)',
+    patternColor: 'rgba(167,139,250,0.12)',
+    Icon: Bot,
+    wip: true,
+    tags: ['React', 'Python', 'Gemini API', 'SQL'],
+    description: 'Entorno de estudio gamificado donde apuntes son analizados por IA para generar batallas RPG por turnos.',
+    highlights: [
+      'Campañas auto-generadas',
+      'Combate por turnos',
+      'Economía y tiempo',
+    ],
+    // ── Modal content ──
+    reto: 'Superar las limitaciones de herramientas de IA actuales (que procesan todas las fuentes de golpe sin dar control al usuario) y combatir la falta de motivación en el estudio tradicional mediante gamificación profunda.',
+    solucion: 'Un entorno de estudio basado en cuadernos donde el usuario puede subir apuntes, chatear con ellos y generar material hiperpersonalizado (tests, flashcards). Todo esto sirve como base para alimentar un motor de juego RPG integrado.',
+    mecanicas: [
+      'Generación de Campañas: Integración con Gemini API para crear un mapa de 6 nodos bloqueados secuencialmente, basados estrictamente en los apuntes.',
+      'Sistema de Combate (Jefe): Combate por turnos (15 HP). 4 tipos de ataques con límite de 5 usos por tipo para obligar a dominar todos los formatos de pregunta.',
+      'Economía in-game y Temporizadores: Recompensas en base a vidas conservadas. Tienda para comprar tiempo (~15s) o vidas extra.',
+      'Gestión de Estado: Dos lógicas de supervivencia (local con 3 vidas/nivel y global con 5 vidas/campaña).',
+    ],
+    github: 'https://github.com/'
   },
   {
     id: 'restaurante',
-    title: 'Menú Real-time Restaurante',
+    title: 'Menú Dinámico & CMS Real-time',
     accent: '#fbbf24',
     gradient: 'linear-gradient(135deg, #1c1000 0%, #3d2500 50%, #78350f 100%)',
     patternColor: 'rgba(251,191,36,0.10)',
     Icon: Utensils,
-    tags: ['React', 'Supabase', 'Real-time'],
-    description: 'Menú digital con edición in-line y sincronización instantánea. Lo que el admin edita, el cliente lo ve al momento.',
+    tags: ['React', 'Supabase Auth/DB'],
+    description: 'Carta digital para restaurante con edición visual directa (WYSIWYG) y despliegue instantáneo a clientes.',
     highlights: [
-      'Edición "In-line" — lo que ves es lo que editas',
-      'Actualización instantánea para clientes',
-      'Panel admin con gestión de disponibilidad',
+      'Edición in-line WYSIWYG',
+      'Cambios instantáneos',
+      'Gestión granular stock',
     ],
-    reto: 'El restaurante quería un menú digital que su equipo pudiera actualizar en segundos sin depender de ningún técnico, sin formularios complejos ni sistemas de CMS genéricos. La actualización debía verse reflejada al instante en las tablets de los clientes.',
-    solucion: 'Interfaz de edición in-line directamente sobre el menú visible: el camarero toca cualquier plato y edita el nombre, precio o descripción en su lugar. Sincronizado via Supabase Realtime, el cambio aparece en todos los dispositivos conectados en menos de 500ms.',
+    reto: 'Un restaurante necesitaba una carta digital que el propio dueño pudiera actualizar a diario o semanalmente, sin depender de un programador y sin tener que aprender a usar paneles de administración complejos.',
+    solucion: 'Desarrollo de la web pública del restaurante conectada a un sistema de gestión oculto y seguro (acceso mediante URL específica y autenticación con Supabase Auth).',
     funciones: [
-      'Edición in-line WYSIWYG sobre el menú (sin formularios)',
-      'Sincronización Realtime < 500ms via Supabase',
-      'Marcado de platos agotados con un solo tap',
-      'Galería de fotos por plato con subida rápida',
-      'Separación por categorías y carta del día',
-      'Modo pantalla completa optimizado para tablets de mesa',
+      'Edición In-line (WYSIWYG): El administrador visualiza la misma interfaz que el cliente final, con controles integrados para editar texto y precio en el sitio.',
+      'Gestión de Stock y Visibilidad: Permite cambiar el estado de los platos de forma granular (marcar como agotado, ocultar temporalmente o eliminar definitivamente).',
+      'Sincronización en Tiempo Real: Gracias a la base de datos de Supabase, los cambios se reflejan instantáneamente en las pantallas o móviles de los clientes sin necesidad de recargar.',
     ],
+    github: 'https://github.com/',
+    live: 'https://example.com'
   },
 ]
 
@@ -201,6 +185,11 @@ function ProjectCard({ project, index, onClick }) {
               {tag}
             </span>
           ))}
+          {project.wip && (
+            <span className="project-tag project-tag--wip" style={{ '--accent': '#f43f5e' }}>
+              🚧 WIP
+            </span>
+          )}
         </div>
 
         <h3 className="project-card__title">{project.title}</h3>

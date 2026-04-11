@@ -230,3 +230,86 @@
   flex-shrink: 0;
   opacity: 0.75;
 }
+
+/* ── Animated gradient text on tech names ── */
+.tech-name {
+  background: linear-gradient(
+    90deg,
+    var(--color-text-secondary) 0%,
+    var(--card-accent)           50%,
+    var(--color-text-secondary) 100%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: techGradientFlow 6s linear infinite;
+  will-change: background-position;
+}
+
+.bento-card:hover .tech-name {
+  animation-duration: 3.5s; /* speeds up on hover */
+}
+
+@keyframes techGradientFlow {
+  0%   { background-position: 100% center; }
+  100% { background-position: -120% center; }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — Mobile first improvements
+   ══════════════════════════════════════════════ */
+
+/* Tablet: 2 columns bento */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-card--wide {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile: single column vertical list */
+@media (max-width: 580px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .bento-card--wide {
+    grid-column: span 1;
+  }
+  /* Wide cards: stack content vertically on mobile */
+  .bento-card--wide .bento-card__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bento-card--wide .bento-card__meta {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  /* Disable elevation on mobile (touch devices don't hover) */
+  .bento-card:hover {
+    transform: none;
+  }
+}
+
+/* Disable continuous CSS animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tech-name {
+    animation: none;
+    background: none;
+    color: var(--color-text-secondary);
+    -webkit-text-fill-color: var(--color-text-secondary);
+  }
+  .bento-card:hover {
+    transition-duration: 0.1s;
+    transform: none;
+  }
+}
+

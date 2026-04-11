@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin } from 'lucide-react'
+import { Mail, GitBranch, Link2 } from 'lucide-react'
 import '../styles/contact.css'
 
 const FADE_UP = (delay = 0) => ({
@@ -11,9 +11,9 @@ const FADE_UP = (delay = 0) => ({
 })
 
 const SOCIAL_LINKS = [
-  { id: 'github',   Icon: Github,   href: 'https://github.com/',   label: 'GitHub'   },
-  { id: 'linkedin', Icon: Linkedin, href: 'https://linkedin.com/', label: 'LinkedIn' },
-  { id: 'email',    Icon: Mail,     href: 'mailto:luis@example.com', label: 'Email'  },
+  { id: 'github',   Icon: GitBranch, href: 'https://github.com/',   label: 'GitHub'   },
+  { id: 'linkedin', Icon: Link2,     href: 'https://linkedin.com/', label: 'LinkedIn' },
+  { id: 'email',    Icon: Mail,      href: 'mailto:luis@example.com', label: 'Email'  },
 ]
 
 export default function Contact() {

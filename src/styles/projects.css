@@ -32,9 +32,14 @@
   border-color: var(--accent);
   transform: translateY(-5px);
   box-shadow:
-    0 0 0 1px var(--accent),
-    0 0 30px color-mix(in srgb, var(--accent) 20%, transparent),
-    0 24px 48px rgba(0, 0, 0, 0.4);
+    /* Inner ring */
+    0 0 0 1px color-mix(in srgb, var(--accent) 60%, transparent),
+    /* Near glow */
+    0 0 24px color-mix(in srgb, var(--accent) 28%, transparent),
+    /* Wide ambient glow */
+    0 0 70px color-mix(in srgb, var(--accent) 14%, transparent),
+    /* Depth shadow */
+    0 30px 60px rgba(0, 0, 0, 0.55);
 }
 
 /* ═══════════════════════════════════════════════════════════════

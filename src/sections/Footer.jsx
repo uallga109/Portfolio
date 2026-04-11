@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { GitBranch, Link2, Mail } from 'lucide-react'
 import '../styles/footer.css'
 
 const NAV_ITEMS = [
@@ -8,9 +8,9 @@ const NAV_ITEMS = [
 ]
 
 const SOCIAL_ITEMS = [
-  { Icon: Github,   href: 'https://github.com/',   label: 'GitHub'  },
-  { Icon: Linkedin, href: 'https://linkedin.com/', label: 'LinkedIn'},
-  { Icon: Mail,     href: 'mailto:luis@example.com', label: 'Email' },
+  { Icon: GitBranch, href: 'https://github.com/',   label: 'GitHub'  },
+  { Icon: Link2,     href: 'https://linkedin.com/', label: 'LinkedIn'},
+  { Icon: Mail,      href: 'mailto:luis@example.com', label: 'Email' },
 ]
 
 function smoothScroll(id) {

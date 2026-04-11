@@ -116,10 +116,25 @@ export default function Hero() {
       {/* ── Grid dot pattern ── */}
       <div className="hero__dots" aria-hidden="true" />
 
+      {/* ── Floating status badge — top-right corner ── */}
+      <motion.div
+        className="hero__status"
+        aria-label="Estado: Disponible para nuevos retos"
+        initial={{ opacity: 0, x: 20, y: -8 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <span className="hero__status-ping" aria-hidden="true">
+          <span className="ping-ring" />
+          <span className="ping-core" />
+        </span>
+        Disponible para nuevos retos
+      </motion.div>
+
       <div className="container">
         <div className="hero__content">
 
-          {/* ── Badge ── */}
+          {/* ── Badge (center) ── */}
           <motion.div
             className="hero__badge"
             initial={{ opacity: 0, y: -18 }}
@@ -127,12 +142,10 @@ export default function Hero() {
             transition={{ duration: 0.65, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
             role="text"
           >
-            <motion.span
-              className="hero__badge-dot"
-              aria-hidden="true"
-              animate={{ scale: [1, 1.6, 1], opacity: [0.65, 1, 0.65] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-            />
+            <span className="hero__badge-dot-wrap" aria-hidden="true">
+              <span className="hero__badge-ping-ring" />
+              <span className="hero__badge-ping-core" />
+            </span>
             Disponible para nuevos proyectos
           </motion.div>
 
@@ -173,10 +186,8 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            Soy estudiante de Ingeniería Informática especializado en desarrollo{' '}
-            <strong className="text-strong">Fullstack</strong>
-            {', '}automatización de flujos de trabajo e integración de{' '}
-            <strong className="text-strong">IA</strong>.
+            <strong className="text-strong">Estudiante de Ingeniería Informática | Desarrollador Fullstack</strong><br />
+            Especializado en crear herramientas internas y aplicaciones web que optimizan el trabajo, con gran pasión por resolver problemas lógicos e integrar soluciones de IA.
           </motion.p>
 
           {/* ── CTA Button — Pulse + scale hover ── */}

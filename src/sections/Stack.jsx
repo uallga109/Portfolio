@@ -124,7 +124,7 @@ function BentoCard({ id, span, color, Icon, iconDelay, label, heading, descripti
             <li key={tech}>
               <span className="tech-badge">
                 <span className="tech-badge__dot" aria-hidden="true" />
-                {tech}
+                <span className="tech-name">{tech}</span>
               </span>
             </li>
           ))}

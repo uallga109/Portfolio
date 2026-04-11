@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, ExternalLink, GitFork } from 'lucide-react'
 import '../styles/modal.css'
 
 /* ─────────────────────────────────────────────────────
@@ -114,13 +114,15 @@ export default function ProjectModal({ project, onClose }) {
                     <p>{project.solucion}</p>
                   </ModalSection>
 
-                  <ModalSection label="Funciones Destacadas" heading="Características principales">
-                    <ul className="modal-list" role="list">
-                      {project.funciones.map((f) => (
-                        <li key={f}>{f}</li>
-                      ))}
-                    </ul>
-                  </ModalSection>
+                  {project.funciones && project.funciones.length > 0 && (
+                    <ModalSection label="Funciones Destacadas" heading="Características principales">
+                      <ul className="modal-list" role="list">
+                        {project.funciones.map((f) => (
+                          <li key={f}>{f}</li>
+                        ))}
+                      </ul>
+                    </ModalSection>
+                  )}
 
                   {/* Game mechanics — only for NotebookLM */}
                   {project.mecanicas && (
@@ -132,8 +134,25 @@ export default function ProjectModal({ project, onClose }) {
                       </ul>
                     </ModalSection>
                   )}
-
+                  
                 </div>
+
+                {/* ── Action Links ── */}
+                {(project.github || project.live) && (
+                  <div className="modal-actions" style={{ display: 'flex', gap: '1rem', marginTop: '3rem' }}>
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: '0.8rem 1.6rem', fontSize: '0.88rem' }}>
+                        Ver en vivo <ExternalLink size={16} />
+                      </a>
+                    )}
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '0.8rem 1.6rem', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)', borderRadius: '9px', transition: 'border-color 0.3s' }} onMouseEnter={(e) => e.target.style.borderColor = 'var(--modal-accent)'} onMouseLeave={(e) => e.target.style.borderColor = 'var(--color-border)'}>
+                        <GitFork size={16} /> Repositorio
+                      </a>
+                    )}
+                  </div>
+                )}
+
               </div>
 
             </motion.div>

@@ -11,7 +11,12 @@ import {
   Server, 
   Database, 
   Wrench,
-  ChevronRight
+  ChevronRight,
+  Leaf,
+  Zap,
+  Sparkles,
+  Stethoscope,
+  Store
 } from 'lucide-react'
 import ProjectModal from '../components/ProjectModal'
 
@@ -56,9 +61,97 @@ const STACK_DATA = [
 ]
 
 const PROJECTS = [
+  // CATEGORÍA: PÁGINAS WEB
+  {
+    id: 'greenplug',
+    category: 'web',
+    title: 'Greenplug',
+    accent: '#22c55e',
+    gradient: 'linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%)',
+    patternColor: 'rgba(34,197,94,0.10)',
+    Icon: Leaf,
+    tags: ['React', 'Tailwind', 'SEO'],
+    description: 'Landing page para soluciones de energía sostenible y puntos de recarga eléctrica.',
+    reto: 'Transmitir confianza y sostenibilidad mediante un diseño limpio y moderno.',
+    solucion: 'Uso de una paleta de verdes naturales, animaciones suaves y tipografía legible.',
+    funciones: ['Formulario de contacto optimizado', 'Sección de servicios interactiva', 'Diseño responsive de alto rendimiento.'],
+    githubUrl: '',
+    liveUrl: '',
+    images: []
+  },
+  {
+    id: 'enertafuture',
+    category: 'web',
+    title: 'EnertaFuture',
+    accent: '#3b82f6',
+    gradient: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 50%, #075985 100%)',
+    patternColor: 'rgba(59,130,246,0.10)',
+    Icon: Zap,
+    tags: ['React', 'Framer Motion', 'UI/UX'],
+    description: 'Web corporativa para empresa de sistemas de potencia e innovación energética.',
+    reto: 'Presentar una imagen tecnológica e innovadora para una empresa del sector energético.',
+    solucion: 'Implementación de efectos de partículas y degradados dinámicos con Framer Motion.',
+    funciones: ['Catálogo de soluciones inteligentes', 'Arquitectura de información clara', 'Experiencia de usuario premium.'],
+    githubUrl: '',
+    liveUrl: '',
+    images: []
+  },
+  {
+    id: 'eternal-youth',
+    category: 'web',
+    title: 'Eternal Youth Aguadulce',
+    accent: '#f472b6',
+    gradient: 'linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #991b1b 100%)',
+    patternColor: 'rgba(244,114,182,0.10)',
+    Icon: Sparkles,
+    tags: ['Next.js', 'Tailwind', 'Cloudinary'],
+    description: 'Plataforma para clínica estética y bienestar, con enfoque en la elegancia visual.',
+    reto: 'Crear una presencia online que refleje la sofisticación y calidad de sus tratamientos.',
+    solucion: 'Diseño minimalista con enfoque en la fotografía de alta calidad y tipografías Serif.',
+    funciones: ['Galería de resultados', 'Sistema de reserva de citas integrado', 'Optimización de imágenes cloud.'],
+    githubUrl: '',
+    liveUrl: '',
+    images: []
+  },
+  {
+    id: 'dr-cabeo',
+    category: 'web',
+    title: 'Dr. Cabeo Cirugía Capilar',
+    accent: '#06b6d4',
+    gradient: 'linear-gradient(135deg, #083344 0%, #155e75 50%, #164e63 100%)',
+    patternColor: 'rgba(6,182,212,0.10)',
+    Icon: Stethoscope,
+    tags: ['React', 'Tailwind', 'SEO'],
+    description: 'Landing médica especializada en injerto capilar con alta tasa de conversión.',
+    reto: 'Generar autoridad médica y facilitar la captación de nuevos pacientes potenciales.',
+    solucion: 'Estructura enfocada en conversion (CRO), testimonios reales y FAQ detallada.',
+    funciones: ['Cargador de fotos para diagnóstico previo', 'Integración con WhatsApp Business', 'Tiempos de carga ultrarrápidos.'],
+    githubUrl: '',
+    liveUrl: '',
+    images: []
+  },
+  {
+    id: 'haro-aguadulce',
+    category: 'web',
+    title: 'Haro Aguadulce',
+    accent: '#fb923c',
+    gradient: 'linear-gradient(135deg, #381a0e 0%, #5d2a1a 50%, #7c2d12 100%)',
+    patternColor: 'rgba(251,146,60,0.10)',
+    Icon: Store,
+    tags: ['React', 'Google Maps API', 'Mobile-First'],
+    description: 'Portal de información y reservas para un emblemático local de Aguadulce.',
+    reto: 'Digitalizar la esencia de un negocio local para mejorar su visibilidad y reservas.',
+    solucion: 'Look & feel acogedor con integración de feedback social y localización GPS.',
+    funciones: ['Gestión de reservas online', 'Menú digital interactivo', 'Sección de eventos y noticias locales.'],
+    githubUrl: '',
+    liveUrl: '',
+    images: []
+  },
+
+  // CATEGORÍA: SISTEMAS Y APLICACIONES
   {
     id: 'crm',
-    category: 'web',
+    category: 'sistemas',
     title: 'CRM y Gestor de Flujos',
     accent: '#00f5ff',
     gradient: 'linear-gradient(135deg, #001a20 0%, #013040 50%, #014a5a 100%)',
@@ -70,12 +163,13 @@ const PROJECTS = [
     reto: 'Centralizar la toma de requisitos de clientes (tipo de web, pasarelas de pago, dominios) y mejorar la transparencia del proceso de desarrollo sin tener que enviar correos manuales constantemente.',
     solucion: 'Desarrollo de un panel de gestión integral. Incluye un dashboard con estadísticas, gestión de proyectos mediante vista Kanban (Nuevo, En progreso, En revisión, Completado) e historial.',
     funciones: ['Sistema de tracking en tiempo real para el cliente que muestra el porcentaje de avance dinámicamente.'],
-    github: 'https://github.com/',
-    live: 'https://example.com'
+    githubUrl: '',
+    liveUrl: '',
+    images: []
   },
   {
     id: 'cms-clinica',
-    category: 'web',
+    category: 'sistemas',
     title: 'CMS Clínica Cirugía Capilar',
     accent: '#34d399',
     gradient: 'linear-gradient(135deg, #011a0e 0%, #023520 50%, #065f46 100%)',
@@ -87,11 +181,13 @@ const PROJECTS = [
     reto: 'Crear un sistema interno para que los administradores de la clínica pudieran gestionar la captación de pacientes (leads) y el contenido de su web de forma unificada.',
     solucion: 'Un dashboard personalizado que automatiza el envío de notificaciones al dueño cuando entra un nuevo contacto. Incluye gestión de formularios y analíticas.',
     funciones: ['Gestor de contenidos (CMS) propio para el blog permitiendo crear, editar y programar publicaciones.'],
-    github: 'https://github.com/'
+    githubUrl: '',
+    liveUrl: '',
+    images: []
   },
   {
     id: 'restaurante',
-    category: 'web',
+    category: 'sistemas',
     title: 'Menú Dinámico & CMS Real-time',
     accent: '#fbbf24',
     gradient: 'linear-gradient(135deg, #1c1000 0%, #3d2500 50%, #78350f 100%)',
@@ -103,12 +199,13 @@ const PROJECTS = [
     reto: 'Un restaurante necesitaba una carta digital que el propio dueño pudiera actualizar a diario sin depender de un programador.',
     solucion: 'Desarrollo de la web pública conectada a un sistema de gestión oculto y seguro con edición visual directa.',
     funciones: ['Sincronización en tiempo real: los cambios se reflejan al instante en las pantallas de los clientes.'],
-    github: 'https://github.com/',
-    live: 'https://example.com'
+    githubUrl: '',
+    liveUrl: '',
+    images: []
   },
   {
     id: 'notebooklm',
-    category: 'otros',
+    category: 'sistemas',
     title: 'Plataforma Inteligente & RPG',
     accent: '#a78bfa',
     gradient: 'linear-gradient(135deg, #1a0830 0%, #2d1060 50%, #4c1d95 100%)',
@@ -126,7 +223,9 @@ const PROJECTS = [
       'Economía: Recompensas en el juego según el desempeño en los tests.',
       'Gestión de Estado: Lógicas de supervivencia local y global para mayor reto.'
     ],
-    github: 'https://github.com/'
+    githubUrl: '',
+    liveUrl: '',
+    images: []
   },
 ]
 
@@ -241,7 +340,7 @@ export default function Projects() {
 
   const TABS = [
     { id: 'web', label: 'Páginas Web' },
-    { id: 'otros', label: 'Otros Proyectos' },
+    { id: 'sistemas', label: 'Sistemas y Aplicaciones' },
     { id: 'habilidades', label: 'Habilidades' },
   ]
 

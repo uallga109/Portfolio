@@ -1,208 +1,45 @@
-/* ═══════════════════════════════════════════════════════════════
-   PROJECT MODAL
-   ═══════════════════════════════════════════════════════════════ */
+/* ─────────────────────────────────────────────────────
+   CUSTOM SCROLLBAR
+   ───────────────────────────────────────────────────── */
 
-/* ── Backdrop ── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────
+   ANIMATIONS & TWEAKS
+   ───────────────────────────────────────────────────── */
+
+.btn-primary {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure backdrop is above everything except the modal */
 .modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(4, 6, 12, 0.82);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  z-index: 500;
+  z-index: 600;
 }
 
-/* ── Scroll container ── */
-.modal-scroll {
-  position: fixed;
-  inset: 0;
-  z-index: 501;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 4rem 1.25rem 2rem;
-  overflow-y: auto;
-  pointer-events: none; /* allow clicks through to backdrop */
+/* Responsive adjustments for the new modal structure */
+@media (max-width: 768px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
-/* ── Modal box ── */
-.modal-box {
-  width: 100%;
-  max-width: 740px;
-  border-radius: 22px;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-  pointer-events: all; /* re-enable inside modal */
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04),
-    0 40px 100px rgba(0, 0, 0, 0.65);
-}
-
-/* ── Header visual strip ── */
-.modal-visual {
-  position: relative;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.modal-visual__pattern {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, var(--pat-color, rgba(255,255,255,0.06)) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-.modal-visual__icon {
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 0 24px currentColor);
-}
-
-/* ── Close button ── */
-.modal-close {
-  position: absolute;
-  top: 1.1rem;
-  right: 1.1rem;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  z-index: 10;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.modal-close:hover {
-  background: rgba(0,245,255,0.12);
-  border-color: rgba(0,245,255,0.4);
-  color: var(--color-accent);
-  transform: rotate(90deg);
-}
-
-/* ── Content area ── */
-.modal-content {
-  padding: 1.75rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-}
-
-/* Tags */
-.modal-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-/* Title */
-.modal-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--color-text-primary);
-  line-height: 1.15;
-}
-
-/* Description */
-.modal-desc {
-  font-size: 0.95rem;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 100%;
-}
-
-/* ── Sections (El Reto, Solución, Funciones) ── */
-.modal-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.modal-section {
-  border-left: 2px solid var(--modal-accent, var(--color-accent));
-  padding-left: 1.1rem;
-}
-
-.modal-section__label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--modal-accent, var(--color-accent));
-  margin-bottom: 0.4rem;
-}
-
-.modal-section h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: 0.55rem;
-}
-
-.modal-section p {
-  font-size: 0.9rem;
-  line-height: 1.72;
-  color: var(--color-text-secondary);
-  max-width: 100%;
-}
-
-/* Feature & mechanic lists */
-.modal-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.42rem;
-  list-style: none;
-  margin-top: 0.1rem;
-}
-
-.modal-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  line-height: 1.55;
-}
-
-.modal-list li::before {
-  content: '';
-  flex-shrink: 0;
-  margin-top: 0.45em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--modal-accent, var(--color-accent));
-  opacity: 0.8;
-}
-
-/* Mechanic list — slightly different style */
-.modal-list--mechanic li {
-  color: var(--color-text-primary);
-  font-size: 0.855rem;
-}
-
-/* Divider */
-.modal-divider {
-  height: 1px;
-  background: var(--color-border);
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .modal-scroll { padding: 1rem 0.75rem; align-items: flex-end; }
-  .modal-box { border-radius: 20px 20px 0 0; }
-  .modal-content { padding: 1.5rem 1.5rem 2rem; }
-}

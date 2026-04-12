@@ -1,72 +1,72 @@
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const NAV_LINKS = [
-  { label: 'Stack',     id: 'stack'     },
-  { label: 'Proyectos', id: 'proyectos' },
-  { label: 'Contacto',  id: 'contacto'  },
-]
-
-function smoothScroll(id) {
-  const el = document.getElementById(id)
-  if (!el) return
-  const top = el.getBoundingClientRect().top + window.scrollY - 64
-  window.scrollTo({ top, behavior: 'smooth' })
-}
+  { label: 'Sobre Mí', href: '#sobre-mi' },
+  { label: 'Habilidades', href: '#stack' },
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Contacto', href: '#contact' }
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', fn, { passive: true })
-    return () => window.removeEventListener('scroll', fn)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const smoothScroll = (href) => {
+    if (!href) return;
+    const el = document.querySelector(href);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.nav
-      id="navbar"
-      className={`navbar${scrolled ? ' scrolled' : ''}`}
-      aria-label="Navegación principal"
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-[family-name:var(--font-mono)] ${
+        scrolled 
+          ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4' 
+          : 'bg-transparent py-6 w-full max-w-7xl mx-auto px-4 sm:px-6'
+      }`}
     >
-      <div className="container navbar__inner">
-
+      <div className={`mx-auto flex items-center justify-between ${scrolled ? 'w-full max-w-7xl px-4 sm:px-6' : 'w-full'}`}>
+        
         {/* Logo */}
-        <a
-          id="navbar-logo"
+        <a 
           href="#hero"
-          className="navbar__logo"
-          onClick={(e) => { e.preventDefault(); smoothScroll('hero') }}
-          aria-label="Luis Garcia — ir al inicio"
+          onClick={(e) => { e.preventDefault(); smoothScroll('#hero'); }}
+          className="text-white font-bold text-lg tracking-wider hover:text-[#00f5ff] transition-colors"
         >
-          Luis<span>Garcia</span>
+          {'>_'} LUISGARCIA
         </a>
 
         {/* Links */}
-        <ul className="navbar__links" role="list">
-          {NAV_LINKS.map(({ label, id }, i) => (
-            <motion.li
-              key={id}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.08, duration: 0.5, ease: 'easeOut' }}
-            >
+        <ul className="hidden sm:flex items-center gap-8 text-[#a3a3a3] text-sm tracking-widest uppercase">
+          {NAV_LINKS.map((item, i) => (
+            <li key={`link-${i}`}>
               <a
-                id={`nav-link-${id}`}
-                href={`#${id}`}
-                className="navbar__link"
-                onClick={(e) => { e.preventDefault(); smoothScroll(id) }}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScroll(item.href);
+                }}
+                className="hover:text-white transition-colors duration-200 cursor-pointer"
               >
-                {label}
+                {item.label}
               </a>
-            </motion.li>
+            </li>
           ))}
         </ul>
 
       </div>
     </motion.nav>
-  )
+  );
 }

@@ -1,268 +1,69 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   DESIGN TOKENS — Dark Mode by default
-   Palette: Near-black backgrounds + Cyan Neon accent (#00f5ff)
+   DESIGN TOKENS — Deep Dark Mode
    ═══════════════════════════════════════════════════════════════ */
 @theme {
   /* ── Backgrounds ── */
-  --color-bg-base:     #080b12;   /* deepest background              */
-  --color-bg-surface:  #0f1219;   /* cards, panels                   */
-  --color-bg-elevated: #171c27;   /* hover states, modals            */
-  --color-bg-subtle:   #1e2433;   /* borders, dividers               */
+  --color-bg-base:     #000000;   /* Pure Black */
+  --color-bg-surface:  #0a0a0a;   /* Charcoal Gray */
+  --color-bg-elevated: #111111;   /* Hover, Modals */
 
   /* ── Text ── */
-  --color-text-primary:   #eef0f8;  /* headings — near white, cool   */
-  --color-text-secondary: #8892a4;  /* body copy — muted slate       */
-  --color-text-muted:     #4a5368;  /* labels, captions              */
+  --color-text-primary:   #ffffff;  /* Pure White */
+  --color-text-secondary: #a3a3a3;  /* Neutral 400 */
+  --color-text-muted:     #525252;  /* Neutral 600 */
 
-  /* ── Accent — Cyan Neon ── */
-  --color-accent:       #00f5ff;   /* primary neon cyan              */
-  --color-accent-hover: #00c8d4;   /* darker pressed state           */
-  --color-accent-glow:  rgba(0, 245, 255, 0.25); /* glow halo       */
-  --color-accent-dim:   rgba(0, 245, 255, 0.08); /* tinted bg       */
+  /* ── Border ── */
+  --color-border-subtle:  #171717;  /* Neutral 900 */
+  --color-border-glass:   rgba(255, 255, 255, 0.05);
 
-  /* ── Borders ── */
-  --color-border:       #1e2433;
-  --color-border-glass: rgba(255, 255, 255, 0.07);
-
+  /* ── Accent ── */
+  --color-accent:         #00f5ff; /* Keep cyan as default accent but will use Tailwind classes too */
+  
   /* ── Typography ── */
+  --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-
-  /* ── Transitions ── */
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BASE RESET
+   BASE RESET & GLOBAL
    ═══════════════════════════════════════════════════════════════ */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 72px; /* compensate fixed navbar height */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg-base);
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  min-height: 100dvh;
-  overflow-x: hidden;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   TYPOGRAPHY
-   ═══════════════════════════════════════════════════════════════ */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text-primary);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-}
-
-h1 { font-size: clamp(2.25rem, 5.5vw, 4.25rem); }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-
-p {
-  color: var(--color-text-secondary);
-  max-width: 62ch;
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.2s var(--ease-smooth);
-}
-a:hover { color: var(--color-accent-hover); }
-
-::selection {
-  background-color: var(--color-accent-dim);
-  color: var(--color-text-primary);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   LAYOUT
-   ═══════════════════════════════════════════════════════════════ */
-.container {
-  width: 100%;
-  max-width: 1140px;
-  margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 3rem);
-}
-
-/* ── Section label dot (global utility) ── */
-.section-label__dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 8px var(--color-accent);
-}
-
-.section {
-  padding-block: 6rem;
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
    SCROLLBAR
    ═══════════════════════════════════════════════════════════════ */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg-base); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bg-subtle);
+  background: var(--color-border-subtle);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
-
-/* ═══════════════════════════════════════════════════════════════
-   FOCUS
-   ═══════════════════════════════════════════════════════════════ */
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   NAVBAR — Glassmorphism
-   ═══════════════════════════════════════════════════════════════ */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: 4rem;
-
-  /* Glass effect */
-  background: rgba(8, 11, 18, 0.6);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border-bottom: 1px solid var(--color-border-glass);
-
-  transition:
-    background 0.3s var(--ease-smooth),
-    box-shadow 0.3s var(--ease-smooth);
-}
-
-.navbar.scrolled {
-  background: rgba(8, 11, 18, 0.85);
-  box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5);
-}
-
-.navbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-}
-
-/* Logo */
-.navbar__logo {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  transition: color 0.2s var(--ease-smooth);
-  cursor: default;
-  user-select: none;
-}
-
-.navbar__logo span {
-  color: var(--color-accent);
-}
-
-.navbar__logo:hover {
-  color: var(--color-accent);
-}
-
-/* Nav links */
-.navbar__links {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.navbar__link {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--color-text-secondary);
-  position: relative;
-  transition: color 0.2s var(--ease-smooth);
-}
-
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--color-accent);
-  transition: width 0.25s var(--ease-smooth);
-}
-
-.navbar__link:hover {
-  color: var(--color-text-primary);
-}
-
-.navbar__link:hover::after {
-  width: 100%;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   HERO — styles live in src/styles/hero.css (imported by Hero.jsx)
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION HEADER — Reutilizable en todas las secciones
-   ═══════════════════════════════════════════════════════════════ */
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 0.85rem;
-}
-
-.section-title {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--color-text-primary);
-  margin-bottom: 0.75rem;
-}
-
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--color-text-secondary);
-  max-width: 50ch;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.section-header .section-subtitle {
-  margin-inline: auto;
-}
-

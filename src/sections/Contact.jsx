@@ -17,43 +17,26 @@ const SOCIAL_LINKS = [
 
 export default function Contact() {
   return (
-    <section
-      id="contacto"
-      className="section contact-section"
-      aria-labelledby="contacto-heading"
-    >
-      <div className="container">
-        <div className="contact-inner">
-
-          {/* Label */}
-          <motion.p
-            className="section-label"
-            variants={FADE_UP(0)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            aria-hidden="true"
-          >
-            <span className="section-label__dot" />
-            Contacto
-          </motion.p>
+    <section id="contact" className="py-20">
+      <div className="w-full">
+        <div className="flex flex-col items-center text-center">
 
           {/* Heading */}
           <motion.h2
             id="contacto-heading"
-            className="contact-heading"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             variants={FADE_UP(0.1)}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
           >
             ¿Tienes un proyecto<br />
-            <span className="contact-heading__accent">en mente?</span>
+            <span className="text-[#00f5ff]">en mente?</span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="contact-sub"
+            className="text-[#a3a3a3] text-lg max-w-xl mx-auto mb-10"
             variants={FADE_UP(0.2)}
             initial="hidden"
             whileInView="visible"
@@ -67,13 +50,13 @@ export default function Contact() {
           <motion.a
             id="contact-email-btn"
             href="mailto:luis@example.com"
-            className="contact-cta"
+            className="flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
             variants={FADE_UP(0.32)}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
-            whileHover={{ scale: 1.04, y: -3 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Mail size={18} strokeWidth={2} aria-hidden="true" />
             Enviar un mensaje
@@ -81,7 +64,7 @@ export default function Contact() {
 
           {/* Social links */}
           <motion.div
-            className="contact-socials"
+            className="flex items-center justify-center gap-6 mt-12 text-[#a3a3a3]"
             variants={FADE_UP(0.44)}
             initial="hidden"
             whileInView="visible"
@@ -92,12 +75,12 @@ export default function Contact() {
                 key={id}
                 id={`contact-social-${id}`}
                 href={href}
-                className="social-icon-link"
+                className="hover:text-white transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
               >
-                <Icon size={20} strokeWidth={1.75} />
+                <Icon size={24} strokeWidth={1.5} />
               </a>
             ))}
           </motion.div>

@@ -1,104 +1,43 @@
-import { GitBranch, Link2, Mail } from 'lucide-react'
-import '../styles/footer.css'
-
-const NAV_ITEMS = [
-  { label: 'Stack',      href: '#stack'     },
-  { label: 'Proyectos',  href: '#proyectos' },
-  { label: 'Contacto',   href: '#contacto'  },
-]
-
-const SOCIAL_ITEMS = [
-  { Icon: GitBranch,   href: 'https://github.com/',   label: 'GitHub'  },
-  { Icon: Link2, href: 'https://linkedin.com/', label: 'LinkedIn'},
-  { Icon: Mail,      href: 'mailto:luis@example.com', label: 'Email' },
-]
-
-function smoothScroll(id) {
-  const el = document.getElementById(id)
-  if (!el) return
-  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: 'smooth' })
-}
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
-  const year = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/uallga109', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/uallga109', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/uallga109', label: 'Instagram' },
+  ];
 
   return (
-    <footer id="footer" className="footer" role="contentinfo">
+    <footer className="w-full py-16 flex flex-col items-center gap-6 font-mono text-neutral-400">
+      
+      {/* Logo */}
+      <div className="text-white font-bold text-lg tracking-widest">
+        {'>_'} LUISGARCIA
+      </div>
 
-      <div className="container footer__inner">
-
-        {/* ── Top row ── */}
-        <div className="footer__top">
-
-          {/* Logo */}
+      {/* Social Links */}
+      <div className="flex items-center gap-6">
+        {socialLinks.map(({ icon: Icon, href, label }) => (
           <a
-            href="#hero"
-            id="footer-logo"
-            className="footer__logo"
-            onClick={(e) => { e.preventDefault(); smoothScroll('hero') }}
-            aria-label="Luis Garcia — Volver al inicio"
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className="hover:text-[#00f5ff] hover:scale-110 transition-all duration-300 ease-out"
           >
-            Luis<span>Garcia</span>
+            <Icon size={20} strokeWidth={1.5} />
           </a>
+        ))}
+      </div>
 
-          {/* Tagline */}
-          <p className="footer__tag">
-            Desarrollador Fullstack · Automatización · IA
-          </p>
-
-        </div>
-
-        {/* ── Divider ── */}
-        <div className="footer__divider" role="separator" aria-hidden="true" />
-
-        {/* ── Bottom row ── */}
-        <div className="footer__bottom">
-
-          {/* Copyright */}
-          <p className="footer__copy">
-            © {year} Luis Garcia — Hecho con <span aria-label="amor">♥</span> y React
-          </p>
-
-          {/* Nav links */}
-          <nav aria-label="Footer navigation">
-            <ul className="footer__nav" role="list">
-              {NAV_ITEMS.map(({ label, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className="footer__link"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      smoothScroll(href.replace('#', ''))
-                    }}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Social links */}
-          <div className="footer__socials" aria-label="Redes sociales">
-            {SOCIAL_ITEMS.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                className="footer__social"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-              >
-                <Icon size={17} strokeWidth={1.75} />
-              </a>
-            ))}
-          </div>
-
-        </div>
-
+      {/* Copyright */}
+      <div className="text-sm text-neutral-600 mt-2">
+        © {currentYear} Luis Garcia
       </div>
 
     </footer>
-  )
+  );
 }

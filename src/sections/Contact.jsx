@@ -17,8 +17,8 @@ const SOCIAL_LINKS = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20">
-      <div className="w-full">
+    <section id="contact" className="py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
 
           {/* Heading */}

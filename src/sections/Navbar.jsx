@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 
 const NAV_LINKS = [
   { label: 'Sobre Mí', href: '#sobre-mi' },
-  { label: 'Habilidades', href: '#stack' },
   { label: 'Proyectos', href: '#projects' },
   { label: 'Contacto', href: '#contact' }
 ];
@@ -34,10 +33,10 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-[family-name:var(--font-mono)] ${
         scrolled 
           ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4' 
-          : 'bg-transparent py-6 w-full max-w-7xl mx-auto px-4 sm:px-6'
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className={`mx-auto flex items-center justify-between ${scrolled ? 'w-full max-w-7xl px-4 sm:px-6' : 'w-full'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         
         {/* Logo */}
         <a 

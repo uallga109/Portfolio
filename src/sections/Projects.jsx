@@ -248,8 +248,8 @@ export default function Projects() {
   const filteredProjects = PROJECTS.filter(p => p.category === activeTab)
 
   return (
-    <section id="projects" className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Header */}
         <div className="text-center mb-16">

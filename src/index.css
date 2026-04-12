@@ -44,11 +44,14 @@
   
   body {
     background-color: var(--color-bg-base);
+    background-image: radial-gradient(ellipse at center, rgba(8, 51, 68, 0.25) 0%, #000000 70%);
+    background-attachment: fixed;
     color: var(--color-text-secondary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    min-height: 100vh;
   }
 
   ::selection {

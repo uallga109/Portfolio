@@ -20,7 +20,7 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div id="wrapper" className="bg-[#000000] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-950/20 via-black to-black bg-fixed min-h-screen text-[#a3a3a3] font-sans selection:bg-white/10 selection:text-white">
+    <div id="wrapper" className="min-h-screen">
       
       {/* GLobal utilities */}
       <CustomCursor />
@@ -42,16 +42,16 @@ export default function App() {
           >
             <Navbar />
             
-            <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+            <main id="main-content" className="w-full">
               <Hero />
               <About />
               <Education />
 
               <Projects />
               <Contact />
+              <Footer />
             </main>
-            
-            <Footer />
+
           </motion.div>
         )}
       </AnimatePresence>

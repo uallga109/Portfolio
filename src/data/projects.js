@@ -203,15 +203,23 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     gradient: 'linear-gradient(135deg, #001a20 0%, #013040 50%, #014a5a 100%)',
     patternColor: 'rgba(0,245,255,0.10)',
     Icon: Kanban,
-    tags: ['React', 'Supabase', 'Make'],
-    description: 'Panel integral para la toma de requisitos con tablero Kanban y seguimiento de progreso estilo paquetería.',
-    highlights: ['Seguimiento para cliente', 'Dashboard estadísticas', 'Vista Kanban de proyectos'],
-    reto: 'Centralizar la toma de requisitos de clientes (tipo de web, pasarelas de pago, dominios) y mejorar la transparencia del proceso de desarrollo sin tener que enviar correos manuales constantemente.',
-    solucion: 'Desarrollo de un panel de gestión integral. Incluye un dashboard con estadísticas, gestión de proyectos mediante vista Kanban (Nuevo, En progreso, En revisión, Completado) e historial.',
-    funciones: ['Sistema de tracking en tiempo real para el cliente que muestra el porcentaje de avance dinámicamente.'],
+    tags: ['React', 'Supabase', 'SaaS Interno', 'UI/Dashboard'],
+    description: 'Herramienta interna (SaaS) para la creación de presupuestos, gestión del ciclo de vida de proyectos web y portal de seguimiento en tiempo real para clientes.',
+    reto: 'Eliminar la incertidumbre de los clientes durante el desarrollo y optimizar el flujo interno de creación de presupuestos y gestión de proyectos, centralizando todo en un único panel de control robusto en lugar de usar hojas de cálculo y correos.',
+    solucion: 'Desarrollo de una Single Page Application (SPA) con arquitectura de panel de administración (Dashboard). Incluye un generador de presupuestos interactivo, un pipeline de proyectos (Vista Lista y Kanban) con arrastrar y soltar (Drag & Drop), y estadísticas financieras en tiempo real (Dinero Cobrado, Pipeline Actual).',
+    funciones: [
+      'Portal de Tracking para Clientes: Al crear un proyecto, se genera un enlace único (\'Copiar Enlace del Cliente\'). Al visitarlo, el cliente ve un portal personalizado (\'Hola, Carlos\') con una línea de tiempo interactiva (Material, Desarrollo, Revisión, Publicado) y un anillo de progreso (ej. 60%) que se actualiza en tiempo real.',
+      'Calculadora de Presupuestos: Formulario interno complejo de múltiples pasos para definir el alcance del proyecto (Landing, Corporativa, E-commerce), opciones extra (Dominio/Hosting, SEO) y generar el precio final automáticamente.',
+      'Gestión Ágil (Vista Kanban): Los proyectos activos se pueden mover fluidamente mediante Drag & Drop entre las 4 fases del pipeline.',
+      'Historial y Papelera: Sistema completo de gestión de estados, moviendo los proyectos completados a un histórico inmutable y los descartados a la papelera.'
+    ],
     githubUrl: '',
     liveUrl: '',
-    images: []
+    images: [
+      'https://placehold.co/1280x720/001a20/00f5ff?text=Explicacion+sobre+el+Dashboard\\n(Estadisticas+y+Generador+de+Presupuestos)',
+      'https://placehold.co/1280x720/001a20/00f5ff?text=Explicacion+sobre+la+Vista+Kanban\\n(Gestion+Agil+y+Drag+&+Drop)',
+      'https://placehold.co/1280x720/001a20/00f5ff?text=Explicacion+sobre+el+Portal+del+Cliente\\n(Tracking+en+Tiempo+Real+y+Progreso)'
+    ]
   },
   {
     id: 'cms-clinica',

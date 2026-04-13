@@ -29,7 +29,7 @@ export default function ImageCarousel({ images }) {
   if (!images || images.length === 0) return null
 
   return (
-    <div className="relative group w-full aspect-[21/9] rounded-3xl overflow-hidden border border-white/10 bg-white/5">
+    <div className="relative group w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 bg-white/5">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
@@ -71,9 +71,8 @@ export default function ImageCarousel({ images }) {
               setIsAutoPlaying(false)
               setCurrentIndex(i)
             }}
-            className={`h-1.5 transition-all duration-300 rounded-full ${
-              currentIndex === i ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/50'
-            }`}
+            className={`h-1.5 transition-all duration-300 rounded-full ${currentIndex === i ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/50'
+              }`}
           />
         ))}
       </div>

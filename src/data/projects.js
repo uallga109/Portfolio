@@ -1,11 +1,11 @@
-import { 
-  Bot, 
-  Kanban, 
-  Heart, 
-  Utensils, 
-  Code2, 
-  Server, 
-  Database, 
+import {
+  Bot,
+  Kanban,
+  Heart,
+  Utensils,
+  Code2,
+  Server,
+  Database,
   Wrench,
   Leaf,
   Zap,
@@ -13,6 +13,31 @@ import {
   Stethoscope,
   Store
 } from 'lucide-react'
+
+import kboimg1 from '../assets/DrCabeo/Captura de pantalla 2026-04-13 182809.png';
+import kboimg2 from '../assets/DrCabeo/Captura de pantalla 2026-04-13 182849.png';
+import kboimg3 from '../assets/DrCabeo/Captura de pantalla 2026-04-13 182958.png';
+import kboimg4 from '../assets/DrCabeo/Captura de pantalla 2026-04-13 183030.png';
+import kboimg5 from '../assets/DrCabeo/Captura de pantalla 2026-04-13 184801.png';
+
+import greenimg1 from '../assets/GreenPlug/Captura de pantalla 2026-04-13 190921.png';
+import greenimg2 from '../assets/GreenPlug/Captura de pantalla 2026-04-13 191008.png';
+import greenimg3 from '../assets/GreenPlug/Captura de pantalla 2026-04-13 191028.png';
+import greenimg4 from '../assets/GreenPlug/Captura de pantalla 2026-04-13 191054.png';
+import greenimg5 from '../assets/GreenPlug/Captura de pantalla 2026-04-13 191220.png';
+
+import enertaimg1 from '../assets/Enerta/Captura de pantalla 2026-04-13 191406.png';
+import enertaimg2 from '../assets/Enerta/Captura de pantalla 2026-04-13 191431.png';
+import enertaimg3 from '../assets/Enerta/Captura de pantalla 2026-04-13 191451.png';
+import enertaimg4 from '../assets/Enerta/Captura de pantalla 2026-04-13 191521.png';
+import enertaimg5 from '../assets/Enerta/Captura de pantalla 2026-04-13 191556.png';
+
+import eyimg1 from '../assets/EternalYouth/Captura de pantalla 2026-04-13 191655.png';
+import eyimg2 from '../assets/EternalYouth/Captura de pantalla 2026-04-13 191735.png';
+import eyimg3 from '../assets/EternalYouth/Captura de pantalla 2026-04-13 191839.png';
+import eyimg4 from '../assets/EternalYouth/Captura de pantalla 2026-04-13 191921.png';
+
+
 
 export const STACK_DATA = [
   {
@@ -59,7 +84,7 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     accent: '#06b6d4',
     gradient: 'linear-gradient(135deg, #083344 0%, #155e75 50%, #164e63 100%)',
     patternColor: 'rgba(6,182,212,0.10)',
-    Icon: Stethoscope,
+    logoUrl: kboimg3,
     tags: ['React', 'Integración CMS', 'CRO Médico'],
     description: 'Web corporativa integral y portal médico de alta conversión, conectado a un CMS personalizado.',
     reto: 'Digitalizar y estructurar de forma profesional una clínica médica, gestionando un gran volumen de información sobre tratamientos (injerto capilar, mesoterapia, PRF), equipo médico, testimonios en vídeo y reseñas en tiempo real.',
@@ -68,11 +93,11 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     githubUrl: '',
     liveUrl: 'https://kbo-capilar-genesis-txv4.vercel.app/protocolo-kbo',
     images: [
-      'https://picsum.photos/seed/kbo1/1200/800',
-      'https://picsum.photos/seed/kbo2/1200/800',
-      'https://picsum.photos/seed/kbo3/1200/800',
-      'https://picsum.photos/seed/kbo4/1200/800',
-      'https://picsum.photos/seed/kbo5/1200/800'
+      kboimg1,
+      kboimg2,
+      kboimg3,
+      kboimg4,
+      kboimg5
     ]
   },
   {
@@ -89,20 +114,16 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     reto: 'El cliente necesitaba digitalizar su presencia física (historia, localización, galería) unificada con una carta online dinámica que no dependiera de PDFs estáticos y que fuera fácil de navegar en móviles.',
     solucion: 'Creación de una experiencia \'2 en 1\'. La página principal actúa como escaparate del local (con un preview de la historia y galería) e integra la carta digital completa directamente. Se desarrolló un menú lateral (hamburguesa) para explorar páginas dedicadas (Historia profunda y Galería inmersiva).',
     funciones: [
-      'Carta Digital Integrada (conectada a CMS In-line)', 
-      'Diseño Mobile-First estricto', 
-      'Menú de navegación off-canvas (hamburguesa)', 
+      'Carta Digital Integrada (conectada a CMS In-line)',
+      'Diseño Mobile-First estricto',
+      'Menú de navegación off-canvas (hamburguesa)',
       'Galerías de imágenes optimizadas.',
       'Nota: La carta está conectada a un Panel de Administración en tiempo real (que se detalla en la sección de \'Sistemas y Aplicaciones\').'
     ],
     githubUrl: '',
     liveUrl: '',
     images: [
-      'https://picsum.photos/seed/haro1/1200/800',
-      'https://picsum.photos/seed/haro2/1200/800',
-      'https://picsum.photos/seed/haro3/1200/800',
-      'https://picsum.photos/seed/haro4/1200/800',
-      'https://picsum.photos/seed/haro5/1200/800'
+
     ]
   },
   {
@@ -112,7 +133,7 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     accent: '#f472b6',
     gradient: 'linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #991b1b 100%)',
     patternColor: 'rgba(244,114,182,0.10)',
-    Icon: Sparkles,
+    logoUrl: eyimg1,
     tags: ['Next.js', 'i18n (Multilenguaje)', 'UI Premium'],
     description: 'Plataforma premium para centro de estética y belleza, enfocada en la conversión y la experiencia de usuario multilingüe.',
     reto: 'Atraer a un público local e internacional (turistas/residentes) con un diseño que refleje lujo, limpieza y profesionalidad.',
@@ -121,11 +142,10 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     githubUrl: '',
     liveUrl: 'https://www.eternalyouthaguadulce.com/',
     images: [
-      'https://picsum.photos/seed/ey1/1200/800',
-      'https://picsum.photos/seed/ey2/1200/800',
-      'https://picsum.photos/seed/ey3/1200/800',
-      'https://picsum.photos/seed/ey4/1200/800',
-      'https://picsum.photos/seed/ey5/1200/800'
+      eyimg2,
+      eyimg3,
+      eyimg1,
+      eyimg4
     ]
   },
   {
@@ -135,7 +155,7 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     accent: '#22c55e',
     gradient: 'linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%)',
     patternColor: 'rgba(34,197,94,0.10)',
-    Icon: Leaf,
+    logoUrl: greenimg5,
     tags: ['React', 'Tailwind CSS', 'B2B Corporativo'],
     description: 'Web corporativa integral para soluciones de infraestructura de recarga y optimización energética para empresas B2B.',
     reto: 'Digitalizar la captación de leads B2B en las provincias de Andalucía y estructurar un catálogo complejo de servicios (instalación, mantenimiento, optimización).',
@@ -144,11 +164,10 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     githubUrl: '',
     liveUrl: 'https://www.greenplug.es/',
     images: [
-      'https://picsum.photos/seed/gp1/1200/800',
-      'https://picsum.photos/seed/gp2/1200/800',
-      'https://picsum.photos/seed/gp3/1200/800',
-      'https://picsum.photos/seed/gp4/1200/800',
-      'https://picsum.photos/seed/gp5/1200/800'
+      greenimg1,
+      greenimg2,
+      greenimg3,
+      greenimg4
     ]
   },
   {
@@ -158,7 +177,7 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     accent: '#3b82f6',
     gradient: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 50%, #075985 100%)',
     patternColor: 'rgba(59,130,246,0.10)',
-    Icon: Zap,
+    logoUrl: enertaimg5,
     tags: ['React', 'UI Corporativa', 'Lead Generation'],
     description: 'Portal web corporativo para servicios integrales de instalaciones eléctricas and energías renovables (desde 2006).',
     reto: 'Modernizar una marca con más de 15 años de trayectoria, transmitiendo seguridad, experiencia y promoviendo colaboraciones estratégicas (ej. Mejoradora).',
@@ -167,11 +186,11 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     githubUrl: '',
     liveUrl: 'https://www.enertafuture.es/',
     images: [
-      'https://picsum.photos/seed/ef1/1200/800',
-      'https://picsum.photos/seed/ef2/1200/800',
-      'https://picsum.photos/seed/ef3/1200/800',
-      'https://picsum.photos/seed/ef4/1200/800',
-      'https://picsum.photos/seed/ef5/1200/800'
+      enertaimg1,
+      enertaimg2,
+      enertaimg3,
+      enertaimg5,
+      enertaimg4
     ]
   },
 

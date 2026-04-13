@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import profilePic from '../assets/profile.jpg';
 
 export default function About() {
   return (
@@ -43,8 +44,9 @@ export default function About() {
             className="flex justify-center lg:justify-end"
           >
             <div className="w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-gray-800 border border-gray-700 shadow-2xl relative overflow-hidden">
+              <img src={profilePic} alt="Foto de perfil" className="w-full h-full object-cover" />
               {/* Optional glow or placeholder effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
             </div>
           </motion.div>
 

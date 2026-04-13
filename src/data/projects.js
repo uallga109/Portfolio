@@ -51,41 +51,59 @@ export const STACK_DATA = [
   },
 ]
 
-export const PROJECTS = [
-  // CATEGORÍA: PÁGINAS WEB
+export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
   {
-    id: 'greenplug',
+    id: 'dr-cabeo',
     category: 'web',
-    title: 'Greenplug',
-    accent: '#22c55e',
-    gradient: 'linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%)',
-    patternColor: 'rgba(34,197,94,0.10)',
-    Icon: Leaf,
-    tags: ['React', 'Tailwind CSS', 'B2B Corporativo'],
-    description: 'Web corporativa integral para soluciones de infraestructura de recarga y optimización energética para empresas B2B.',
-    reto: 'Digitalizar la captación de leads B2B en las provincias de Andalucía y estructurar un catálogo complejo de servicios (instalación, mantenimiento, optimización).',
-    solucion: 'Desarrollo de una arquitectura de información clara con menús de navegación profundos y formularios condicionales para cualificar leads (CPOs, flotas, fabricantes).',
-    funciones: ['Formularios de captación cualificada', 'Navegación multi-nivel', 'Optimización de carga de assets pesados (imágenes de alta calidad).'],
+    title: 'Dr. Cabeo Cirugía Capilar',
+    accent: '#06b6d4',
+    gradient: 'linear-gradient(135deg, #083344 0%, #155e75 50%, #164e63 100%)',
+    patternColor: 'rgba(6,182,212,0.10)',
+    Icon: Stethoscope,
+    tags: ['React', 'Integración CMS', 'CRO Médico'],
+    description: 'Web corporativa integral y portal médico de alta conversión, conectado a un CMS personalizado.',
+    reto: 'Digitalizar y estructurar de forma profesional una clínica médica, gestionando un gran volumen de información sobre tratamientos (injerto capilar, mesoterapia, PRF), equipo médico, testimonios en vídeo y reseñas en tiempo real.',
+    solucion: 'Desarrollo de una arquitectura web escalable con múltiples páginas dedicadas. Se implementó un diseño de alta confianza clínica (CRO) y se conectó dinámicamente con un panel de administración propio (Protocolo KBO) para la gestión del contenido.',
+    funciones: ['Integración en tiempo real de reseñas de Google', 'Sección de testimonios en vídeo', 'Formularios de captación integrados con CRM propio', 'Blog dinámico autogestionable.'],
     githubUrl: '',
-    liveUrl: 'https://www.greenplug.es/',
-    images: []
+    liveUrl: 'https://kbo-capilar-genesis-txv4.vercel.app/protocolo-kbo',
+    images: [
+      'https://picsum.photos/seed/kbo1/1200/800',
+      'https://picsum.photos/seed/kbo2/1200/800',
+      'https://picsum.photos/seed/kbo3/1200/800',
+      'https://picsum.photos/seed/kbo4/1200/800',
+      'https://picsum.photos/seed/kbo5/1200/800'
+    ]
   },
   {
-    id: 'enertafuture',
+    id: 'haro-aguadulce',
     category: 'web',
-    title: 'EnertaFuture',
-    accent: '#3b82f6',
-    gradient: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 50%, #075985 100%)',
-    patternColor: 'rgba(59,130,246,0.10)',
-    Icon: Zap,
-    tags: ['React', 'UI Corporativa', 'Lead Generation'],
-    description: 'Portal web corporativo para servicios integrales de instalaciones eléctricas y energías renovables (desde 2006).',
-    reto: 'Modernizar una marca con más de 15 años de trayectoria, transmitiendo seguridad, experiencia y promoviendo colaboraciones estratégicas (ej. Mejoradora).',
-    solucion: 'Diseño de una interfaz basada en la confianza (verde corporativo), incorporando un \'Timeline\' interactivo (\'Nuestra trayectoria\') y llamadas a la acción claras para presupuestos.',
-    funciones: ['Componente Timeline interactivo', 'Integración de FAQ dinámico', 'Formularios de contacto seccionados por servicio de interés.'],
+    title: 'Haro Aguadulce',
+    accent: '#fb923c',
+    gradient: 'linear-gradient(135deg, #381a0e 0%, #5d2a1a 50%, #7c2d12 100%)',
+    patternColor: 'rgba(251,146,60,0.10)',
+    Icon: Store,
+    wip: true,
+    tags: ['React', 'Diseño Híbrido', 'Mobile-First'],
+    description: 'Experiencia web híbrida: Portal corporativo + Carta digital interactiva gestionada en tiempo real.',
+    reto: 'El cliente necesitaba digitalizar su presencia física (historia, localización, galería) unificada con una carta online dinámica que no dependiera de PDFs estáticos y que fuera fácil de navegar en móviles.',
+    solucion: 'Creación de una experiencia \'2 en 1\'. La página principal actúa como escaparate del local (con un preview de la historia y galería) e integra la carta digital completa directamente. Se desarrolló un menú lateral (hamburguesa) para explorar páginas dedicadas (Historia profunda y Galería inmersiva).',
+    funciones: [
+      'Carta Digital Integrada (conectada a CMS In-line)', 
+      'Diseño Mobile-First estricto', 
+      'Menú de navegación off-canvas (hamburguesa)', 
+      'Galerías de imágenes optimizadas.',
+      'Nota: La carta está conectada a un Panel de Administración en tiempo real (que se detalla en la sección de \'Sistemas y Aplicaciones\').'
+    ],
     githubUrl: '',
-    liveUrl: 'https://www.enertafuture.es/',
-    images: []
+    liveUrl: '',
+    images: [
+      'https://picsum.photos/seed/haro1/1200/800',
+      'https://picsum.photos/seed/haro2/1200/800',
+      'https://picsum.photos/seed/haro3/1200/800',
+      'https://picsum.photos/seed/haro4/1200/800',
+      'https://picsum.photos/seed/haro5/1200/800'
+    ]
   },
   {
     id: 'eternal-youth',
@@ -102,47 +120,59 @@ export const PROJECTS = [
     funciones: ['Soporte Multilenguaje (Español / Inglés)', 'Catálogos de tratamientos categorizados (facial, láser, corporal)', 'Diseño Mobile-First estricto.'],
     githubUrl: '',
     liveUrl: 'https://www.eternalyouthaguadulce.com/',
-    images: []
+    images: [
+      'https://picsum.photos/seed/ey1/1200/800',
+      'https://picsum.photos/seed/ey2/1200/800',
+      'https://picsum.photos/seed/ey3/1200/800',
+      'https://picsum.photos/seed/ey4/1200/800',
+      'https://picsum.photos/seed/ey5/1200/800'
+    ]
   },
   {
-    id: 'dr-cabeo',
+    id: 'greenplug',
     category: 'web',
-    title: 'Dr. Cabeo Cirugía Capilar',
-    accent: '#06b6d4',
-    gradient: 'linear-gradient(135deg, #083344 0%, #155e75 50%, #164e63 100%)',
-    patternColor: 'rgba(6,182,212,0.10)',
-    Icon: Stethoscope,
-    tags: ['React', 'Integración CMS', 'CRO Médico'],
-    description: 'Web corporativa integral y portal médico de alta conversión, conectado a un CMS personalizado.',
-    reto: 'Digitalizar y estructurar de forma profesional una clínica médica, gestionando un gran volumen de información sobre tratamientos (injerto capilar, mesoterapia, PRF), equipo médico, testimonios en vídeo y reseñas en tiempo real.',
-    solucion: 'Desarrollo de una arquitectura web escalable con múltiples páginas dedicadas. Se implementó un diseño de alta confianza clínica (CRO) y se conectó dinámicamente con un panel de administración propio (Protocolo KBO) para la gestión del contenido.',
-    funciones: ['Integración en tiempo real de reseñas de Google', 'Sección de testimonios en vídeo', 'Formularios de captación integrados con CRM propio', 'Blog dinámico autogestionable.'],
+    title: 'Greenplug',
+    accent: '#22c55e',
+    gradient: 'linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%)',
+    patternColor: 'rgba(34,197,94,0.10)',
+    Icon: Leaf,
+    tags: ['React', 'Tailwind CSS', 'B2B Corporativo'],
+    description: 'Web corporativa integral para soluciones de infraestructura de recarga y optimización energética para empresas B2B.',
+    reto: 'Digitalizar la captación de leads B2B en las provincias de Andalucía y estructurar un catálogo complejo de servicios (instalación, mantenimiento, optimización).',
+    solucion: 'Desarrollo de una arquitectura de información clara con menús de navegación profundos y formularios condicionales para cualificar leads (CPOs, flotas, fabricantes).',
+    funciones: ['Formularios de captación cualificada', 'Navegación multi-nivel', 'Optimización de carga de assets pesados (imágenes de alta calidad).'],
     githubUrl: '',
-    liveUrl: '',
-    images: []
+    liveUrl: 'https://www.greenplug.es/',
+    images: [
+      'https://picsum.photos/seed/gp1/1200/800',
+      'https://picsum.photos/seed/gp2/1200/800',
+      'https://picsum.photos/seed/gp3/1200/800',
+      'https://picsum.photos/seed/gp4/1200/800',
+      'https://picsum.photos/seed/gp5/1200/800'
+    ]
   },
   {
-    id: 'haro-aguadulce',
+    id: 'enertafuture',
     category: 'web',
-    title: 'Haro Aguadulce',
-    accent: '#fb923c',
-    gradient: 'linear-gradient(135deg, #381a0e 0%, #5d2a1a 50%, #7c2d12 100%)',
-    patternColor: 'rgba(251,146,60,0.10)',
-    Icon: Store,
-    tags: ['React', 'Diseño Híbrido', 'Mobile-First'],
-    description: 'Experiencia web híbrida: Portal corporativo + Carta digital interactiva gestionada en tiempo real.',
-    reto: 'El cliente necesitaba digitalizar su presencia física (historia, localización, galería) unificada con una carta online dinámica que no dependiera de PDFs estáticos y que fuera fácil de navegar en móviles.',
-    solucion: 'Creación de una experiencia \'2 en 1\'. La página principal actúa como escaparate del local (con un preview de la historia y galería) e integra la carta digital completa directamente. Se desarrolló un menú lateral (hamburguesa) para explorar páginas dedicadas (Historia profunda y Galería inmersiva).',
-    funciones: [
-      'Carta Digital Integrada (conectada a CMS In-line)', 
-      'Diseño Mobile-First estricto', 
-      'Menú de navegación off-canvas (hamburguesa)', 
-      'Galerías de imágenes optimizadas.',
-      'Nota: La carta está conectada a un Panel de Administración en tiempo real (que se detalla en la sección de \'Sistemas y Aplicaciones\').'
-    ],
+    title: 'EnertaFuture',
+    accent: '#3b82f6',
+    gradient: 'linear-gradient(135deg, #082f49 0%, #0c4a6e 50%, #075985 100%)',
+    patternColor: 'rgba(59,130,246,0.10)',
+    Icon: Zap,
+    tags: ['React', 'UI Corporativa', 'Lead Generation'],
+    description: 'Portal web corporativo para servicios integrales de instalaciones eléctricas and energías renovables (desde 2006).',
+    reto: 'Modernizar una marca con más de 15 años de trayectoria, transmitiendo seguridad, experiencia y promoviendo colaboraciones estratégicas (ej. Mejoradora).',
+    solucion: 'Diseño de una interfaz basada en la confianza (verde corporativo), incorporando un \'Timeline\' interactivo (\'Nuestra trayectoria\') y llamadas a la acción claras para presupuestos.',
+    funciones: ['Componente Timeline interactivo', 'Integración de FAQ dinámico', 'Formularios de contacto seccionados por servicio de interés.'],
     githubUrl: '',
-    liveUrl: '',
-    images: []
+    liveUrl: 'https://www.enertafuture.es/',
+    images: [
+      'https://picsum.photos/seed/ef1/1200/800',
+      'https://picsum.photos/seed/ef2/1200/800',
+      'https://picsum.photos/seed/ef3/1200/800',
+      'https://picsum.photos/seed/ef4/1200/800',
+      'https://picsum.photos/seed/ef5/1200/800'
+    ]
   },
 
   // CATEGORÍA: SISTEMAS Y APLICACIONES

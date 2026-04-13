@@ -97,12 +97,20 @@ function ProjectCard({ project, onClick }) {
       </div>
 
       <div className="p-6 flex-1 flex flex-col">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map(tag => (
-            <span key={tag} className="text-[10px] font-bold tracking-widest uppercase py-1 px-2 rounded bg-white/5 text-neutral-400 border border-white/5">
-              {tag}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map(tag => (
+              <span key={tag} className="text-[10px] font-bold tracking-widest uppercase py-1 px-2 rounded bg-white/5 text-neutral-400 border border-white/5">
+                {tag}
+              </span>
+            ))}
+          </div>
+          {project.wip && (
+            <span className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-[9px] font-bold text-orange-500 uppercase tracking-wider animate-pulse">
+              <span className="w-1 h-1 rounded-full bg-orange-500" />
+              Work in Progress
             </span>
-          ))}
+          )}
         </div>
         <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00f5ff] transition-colors">{project.title}</h3>
         <p className="text-sm text-neutral-500 line-clamp-2 leading-relaxed flex-1">{project.description}</p>

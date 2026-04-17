@@ -91,7 +91,7 @@ export const PROJECTS = [  // CATEGORÍA: PÁGINAS WEB
     solucion: 'Desarrollo de una arquitectura web escalable con múltiples páginas dedicadas. Se implementó un diseño de alta confianza clínica (CRO) y se conectó dinámicamente con un panel de administración propio (Protocolo KBO) para la gestión del contenido.',
     funciones: ['Integración en tiempo real de reseñas de Google', 'Sección de testimonios en vídeo', 'Formularios de captación integrados con CRM propio', 'Blog dinámico autogestionable.'],
     githubUrl: '',
-    liveUrl: 'https://kbo-capilar-genesis-txv4.vercel.app/protocolo-kbo',
+    liveUrl: 'https://www.drcabeocirugiacapilar.com/',
     images: [
       kboimg1,
       kboimg2,
